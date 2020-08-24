@@ -43,8 +43,10 @@ function mergeRequest()
 
     require('simple-git')()
     .init()
+    .addConfig('user.name', 'Sridhar2908')
+    .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
     .add('./*')
-    .commit("New10  commit!")
+    .commit("New101  commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
  
