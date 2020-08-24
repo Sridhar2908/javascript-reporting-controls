@@ -28,10 +28,13 @@
   "author": "Syncfusion Inc",
   "license": "SEE LICENSE IN README.md",
   "dependencies": {
+    "@boldreports/global": "*",
+    "fs-extra": "^9.0.1",
+    "gulp": "3.9.1",
     "jquery": "*",
     "jquery-validation": "*",
     "jsrender": "*",
-    "@boldreports/global": "*"
+    "simple-git": "^2.19.0"
   },
   "bugs": {
     "url": "https://github.com/boldreports/javascript-reporting-controls/issues"
