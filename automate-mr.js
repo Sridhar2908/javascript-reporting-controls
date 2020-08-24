@@ -55,11 +55,11 @@ try {
     console.log("Merged");
    // console.log(`Merged ${ mergeSummary.merges.length } files`);
   }
-  catch (err) {
+  catch (e) {
     // err.message - the string summary of the error
     // err.stack - some stack trace detail
     // err.git - where a parser was able to run, this is the parsed content
-   console.log(err);
+   console.log(e);
    // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
   }
   require('simple-git')()
@@ -67,6 +67,10 @@ try {
   .pull((err, update) => {
      if(update && update.summary.changes) {
         require('child_process').exec('npm restart');
+     }
+     if(err)
+     {
+         console.log(err);
      }
   })
   .exec(() => console.log('pull done.'));
