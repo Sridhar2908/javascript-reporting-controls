@@ -8,11 +8,11 @@ var suffixPath = ["scripts\\common\\**","scripts\\data-visualization\\**","scrip
 var destPath = ["Scripts\\common","Scripts\\data-visualization","Scripts\\","Content\\"]
 if(fs.existsSync(prefixPath))
 {
-    var i = 0;//Copy Script and Contents
-    suffixPath.forEach(sufPath=>
-        {
-            copyFiles(`${prefixPath}\\${sufPath}`,`CopiedBuild\\${destPath[i++]}`);
-        })
+    // var i = 0;//Copy Script and Contents
+    // suffixPath.forEach(sufPath=>
+    //     {
+    //         copyFiles(`${prefixPath}\\${sufPath}`,`CopiedBuild\\${destPath[i++]}`);
+    //     })
 
     //MR
     mergeRequest();
@@ -42,7 +42,7 @@ function mergeRequest()
     require('simple-git')()
     .init()
     .add('./*')
-    .commit("latest commit!")
+    .commit("latest_6 commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push('origin', 'automate-mr');
     
