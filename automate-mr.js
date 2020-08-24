@@ -37,14 +37,19 @@ function copyFiles(src, dest)
 }
 function mergeRequest()
 {
-    //upto commit 
+   // upto commit 
     // require('simple-git')()
-    // .addConfig('user.name', 'Some One')
-    // .addConfig('user.email', 'some@one.com')
-    // .commit('committed as "Some One"', 'file-one')
+    // .addConfig('user.name', 'Sridhar3908')
+    // .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
+    // .commit('committed as "Sridhar"', 'file-one')
     // .commit('committed as "Another Person"', 'file-two', { '--author': '"Another Person <another@person.com>"' });
 
-
+    require('simple-git')()
+    .init()
+    .add('./*')
+    .commit("first commit!")
+    .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
+    .push('origin', 'automate-mr');
     //pull request
     // require('simple-git')()
     //  .exec(() => console.log('Starting pull...'))
@@ -56,12 +61,12 @@ function mergeRequest()
     //  .exec(() => console.log('pull done.'));
 
 
-   // Merge-- push
-    git()
-     .add('./*')
-     .commit("first commit!")
-     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-     .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+//    // Merge-- push
+//     git()
+//      .add('./*')
+//      .commit("first commit!")
+//      .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
+//      .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
 
 
