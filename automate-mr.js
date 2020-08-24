@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var fs = require('fs');
-var git = require('simple-git');
+const git = require('simple-git');
 gulp.task('automate-mr',function(done){
 var prefixPath = "C:\\Users\\Public\\Documents\\Bold Reports\\Embedded Reporting\\Samples\\Common\\Javascript\\assets";
 
@@ -50,16 +50,10 @@ function mergeRequest()
     .commit("first commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push('origin', 'automate-mr');
+    
+    require('simple-git')().mergeRequest();
 
-    const mergeSummary = git.merge()
-   .catch(err => {
-      if (err.git) { return err.git; } // the unsuccessful mergeSummary
-      throw err;                       // some other error, so throw
-   });
- 
-if (mergeSummary.failed) {
-   console.error(`Merge resulted in ${ mergeSummary.conflicts.length } conflicts`);
-}
+    
     //pull request
     // require('simple-git')()
     //  .exec(() => console.log('Starting pull...'))
