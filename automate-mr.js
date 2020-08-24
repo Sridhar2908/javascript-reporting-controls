@@ -78,8 +78,8 @@ try {
     // err.message - the string summary of the error
     // err.stack - some stack trace detail
     // err.git - where a parser was able to run, this is the parsed content
-   
-    console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
+   console.log(err);
+   // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
   }
 
 }
