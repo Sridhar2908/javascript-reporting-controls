@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
 const git = require('simple-git');
+var shelljs = require('shelljs');
 const { schedulingPolicy } = require('cluster');
 gulp.task('automate-mr',function(done){
 var prefixPath = "C:\\Users\\Public\\Documents\\Bold Reports\\Embedded Reporting\\Samples\\Common\\Javascript\\assets";
@@ -43,7 +44,7 @@ function mergeRequest()
     require('simple-git')()
     .init()
     .add('./*')
-    .commit("latest_9 commit!")
+    .commit("latest11 commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push(['-u', 'origin', 'master'], () => console.log('done'));
  
@@ -62,6 +63,9 @@ try {
    console.log(e);
    // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
   }
+  shelljs.exec('git push');
+
+
   require('simple-git')()
   .exec(() => console.log('Starting pull...'))
   .pull((err, update) => {
