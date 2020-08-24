@@ -51,7 +51,7 @@ function mergeRequest()
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push('origin', 'automate-mr');
     
-    require('simple-git')().mergeRequest();
+ //   require('simple-git')().mergeRequest();
 
     
     //pull request
