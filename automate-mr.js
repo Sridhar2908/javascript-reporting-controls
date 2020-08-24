@@ -43,7 +43,7 @@ function mergeRequest()
     require('simple-git')()
     .init()
     .add('./*')
-    .commit("latest_8 commit!")
+    .commit("latest_9 commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //.push('origin', 'automate-mr');
@@ -72,7 +72,8 @@ const simpleGit = require('simple-git');
 const git = simpleGit(); 
 try {
     const mergeSummary = git.merge();
-    console.log(`Merged ${ mergeSummary.merges.length } files`);
+    console.log("Merged");
+   // console.log(`Merged ${ mergeSummary.merges.length } files`);
   }
   catch (err) {
     // err.message - the string summary of the error
