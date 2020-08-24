@@ -44,9 +44,9 @@ function mergeRequest()
     require('simple-git')()
     .init()
     .add('./*')
-    .commit("New  commit!")
+    .commit("New1  commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-    .push(['-u', 'origin', 'master'], () => console.log('done'));
+    .exec('git push');
  
     
 // const simpleGit = require('simple-git');
@@ -63,19 +63,19 @@ function mergeRequest()
 //    console.log(e);
 //    // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
 //   }
-  shelljs.exec('git push');
+//  shelljs.exec('git push');
 
 
-  require('simple-git')()
-  .exec(() => console.log('Starting pull...'))
-  .pull((err, update) => {
-     if(update && update.summary.changes) {
-        require('child_process').exec('npm restart');
-     }
-     if(err)
-     {
-         console.log(err);
-     }
-  })
-  .exec(() => console.log('pull done.'));
+//   require('simple-git')()
+//   .exec(() => console.log('Starting pull...'))
+//   .pull((err, update) => {
+//      if(update && update.summary.changes) {
+//         require('child_process').exec('npm restart');
+//      }
+//      if(err)
+//      {
+//          console.log(err);
+//      }
+//   })
+//   .exec(() => console.log('pull done.'));
 }
