@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
 const git = require('simple-git');
+const { schedulingPolicy } = require('cluster');
 gulp.task('automate-mr',function(done){
 var prefixPath = "C:\\Users\\Public\\Documents\\Bold Reports\\Embedded Reporting\\Samples\\Common\\Javascript\\assets";
 
@@ -42,9 +43,9 @@ function mergeRequest()
     require('simple-git')()
     .init()
     .add('./*')
-    .commit("latest_6 commit!")
-    .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-    .push('origin', 'automate-mr');
+    .commit("latest_7 commit!")
+    .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
+    //.push('origin', 'automate-mr');
     
   // require('simple-git')().mergeRequest();
 
