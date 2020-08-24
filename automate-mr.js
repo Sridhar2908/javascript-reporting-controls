@@ -39,14 +39,14 @@ function mergeRequest()
 {
    
 
-    // require('simple-git')()
-    // .init()
-    // .add('./*')
-    // .commit("latest commit!")
-    // .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-    // .push('origin', 'automate-mr');
+    require('simple-git')()
+    .init()
+    .add('./*')
+    .commit("latest commit!")
+    .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
+    .push('origin', 'automate-mr');
     
- //   require('simple-git')().mergeRequest();
+   require('simple-git')().mergeRequest();
 
     
     //pull request
@@ -60,12 +60,12 @@ function mergeRequest()
     //  .exec(() => console.log('pull done.'));
 
 
-   // Merge-- push
-    git()
-     .add('./*')
-     .commit("latest commit!")
-     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-     .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+//    // Merge-- push
+//     git()
+//      .add('./*')
+//      .commit("latest commit!")
+//      .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
+//      .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
 
 
