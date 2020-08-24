@@ -45,7 +45,7 @@ function mergeRequest()
     .add('./*')
     .commit("latest_9 commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-    .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+    .push(['-u', 'origin', 'master'], () => console.log('done'));
     //.push('origin', 'automate-mr');
     
   // require('simple-git')().mergeRequest();
