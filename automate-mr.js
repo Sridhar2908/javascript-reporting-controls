@@ -37,19 +37,21 @@ function copyFiles(src, dest)
 }
 function mergeRequest()
 {
-   // upto commit 
-    // require('simple-git')()
-    // .addConfig('user.name', 'Sridhar3908')
-    // .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
-    // .commit('committed as "Sridhar"', 'file-one')
-    // .commit('committed as "Another Person"', 'file-two', { '--author': '"Another Person <another@person.com>"' });
-
+   //upto commit 
     require('simple-git')()
-    .init()
-    .add('./*')
-    .commit("first commit!")
-    .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-    .push('origin', 'automate-mr');
+    .addConfig('user.name', 'Sridhar3908')
+    .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
+    .commit('committed as "Sridhar"', 'file-one')
+    .commit('committed as "Another Person"', 'file-two')
+    .push();
+
+
+    // require('simple-git')()
+    // .init()
+    // .add('./*')
+    // .commit("first commit!")
+    // .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
+    // .push('origin', 'automate-mr');
     
  //   require('simple-git')().mergeRequest();
 
