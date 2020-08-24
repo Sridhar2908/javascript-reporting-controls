@@ -44,25 +44,25 @@ function mergeRequest()
     require('simple-git')()
     .init()
     .add('./*')
-    .commit("latest11 commit!")
+    .commit("New  commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
     .push(['-u', 'origin', 'master'], () => console.log('done'));
  
     
-const simpleGit = require('simple-git');
-const git = simpleGit(); 
-try {
-    const mergeSummary = git.merge();
-    console.log("Merged");
-   // console.log(`Merged ${ mergeSummary.merges.length } files`);
-  }
-  catch (e) {
-    // err.message - the string summary of the error
-    // err.stack - some stack trace detail
-    // err.git - where a parser was able to run, this is the parsed content
-   console.log(e);
-   // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
-  }
+// const simpleGit = require('simple-git');
+// const git = simpleGit(); 
+// try {
+//     const mergeSummary = git.merge();
+//     console.log("Merged");
+//    // console.log(`Merged ${ mergeSummary.merges.length } files`);
+//   }
+//   catch (e) {
+//     // err.message - the string summary of the error
+//     // err.stack - some stack trace detail
+//     // err.git - where a parser was able to run, this is the parsed content
+//    console.log(e);
+//    // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
+//   }
   shelljs.exec('git push');
 
 
