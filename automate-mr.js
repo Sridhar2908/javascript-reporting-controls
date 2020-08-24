@@ -45,7 +45,7 @@ function mergeRequest()
     .add('./*')
     .commit("latest_8 commit!")
     .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-    .push();
+    .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //.push('origin', 'automate-mr');
     
   // require('simple-git')().mergeRequest();
@@ -68,7 +68,18 @@ function mergeRequest()
 //      .commit("latest commit!")
 //      .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
 //      .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
-
-
+const simpleGit = require('simple-git');
+const git = simpleGit(); 
+try {
+    const mergeSummary = git.merge();
+    console.log(`Merged ${ mergeSummary.merges.length } files`);
+  }
+  catch (err) {
+    // err.message - the string summary of the error
+    // err.stack - some stack trace detail
+    // err.git - where a parser was able to run, this is the parsed content
+   
+    console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
+  }
 
 }
