@@ -38,9 +38,9 @@ async function mergeRequest() {
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
         //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     
-    git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+ await  git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //pull 
-    git.pull('origin', 'master', {'--rebase': 'true'})
+ await  git.pull('origin', 'master', {'--rebase': 'true'})
     // await git.pull((err, update) => {
     //         if (err) {
     //             console.log(err);
@@ -51,7 +51,7 @@ async function mergeRequest() {
     //         }
     //     });
     // //Merge 
-    await git.merge((err) => {
+  await   git.merge((err) => {
         if (err.git) {
             console.log(err.git);
             process.exitCode(1); // the failed mergeSummary
