@@ -34,13 +34,13 @@ function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit("merge-request-js-report-control 4.25")
+        .commit("merge-request-js-report-control 4.40")
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
         //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     
-        git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+    git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //pull 
-    git.pull('origin', 'master', {'--rebase': 'true'})
+   // git.pull('origin', 'master', {'--rebase': 'true'})
     git.pull((err, update) => {
             if (err) {
                 console.log(err);
