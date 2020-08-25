@@ -67,6 +67,10 @@ function pull() {
         if(update && update.summary.changes) {
            require('child_process').exec('npm restart');
         }
+        if(err)
+        {
+            console.log(err);
+        }
      })
      .exec(() => console.log('pull done.'));
 }
