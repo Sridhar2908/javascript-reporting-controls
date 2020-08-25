@@ -59,7 +59,7 @@ function mergeRequest() {
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
     try {
-        const mergeSummary = git.merge();
+        const mergeSummary = git().merge();
         console.log("Merged");
        // console.log(`Merged ${ mergeSummary.merges.length } files`);
       }
