@@ -9,14 +9,14 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 { srcPath: "scripts\\*.js", destPath: "Scripts\\" },
 { srcPath: "themes\\**\\*", destPath: "Content\\" }];
 
-gulp.task('automate-mr', function (done) {
+gulp.task('automate-mr', async function (done) {
     if (fs.existsSync(prefixPath)) {
         //Copy Script and Contents
         suffixPath.forEach(path => {
             copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
         })
         //MR
-        runSequence('push', 'pull');
+       await runSequence('push', 'pull');
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
