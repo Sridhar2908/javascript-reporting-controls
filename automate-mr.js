@@ -17,7 +17,7 @@ gulp.task('automate-mr',async function (done) {
         })
         //MR
         mergeRequest();
-        pull();
+       // pull();
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
@@ -37,7 +37,7 @@ function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit("automate MR")
+        .commit("automate MR New")
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
