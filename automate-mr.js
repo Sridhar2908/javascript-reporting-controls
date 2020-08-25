@@ -63,8 +63,8 @@ function mergeRequest() {
 
    //Merge 
    git().merge((err) => {
-    if (err) {
-        console.log(err);; // the failed mergeSummary
+    if (err.git) {
+        console.log(err.git);; // the failed mergeSummary
     }
     
  })
