@@ -8,7 +8,7 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 { srcPath: "scripts\\*.js", destPath: "Scripts\\" },
 { srcPath: "themes\\**\\*", destPath: "Content\\" }];
 
-gulp.task('automate-mr', async function (done) {
+gulp.task('automate-mr', function (done) {
 
     if (fs.existsSync(prefixPath)) {
         //Copy Script and Contents
