@@ -17,16 +17,13 @@ gulp.task('merge-request', function (done) {
         })
         //MR
         mergeRequest();
-        //pull();
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
         process.exitCode(1);
     }
-
     done();
 });
-
 function copyFiles(src, dest) {
     gulp.src(src)
         .pipe(gulp.dest(dest));
@@ -40,36 +37,22 @@ function mergeRequest() {
         .commit("merge-request-js-report-control 11.34")
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
-
     shelljs.exec('git push');
-
-    // shelljs.exec('git pull')
-
     //pull 
     // git().pull('origin', 'master', {'--rebase': 'true'})
-    // update repo and when there are changes, restart the app
     git()
         .pull((err, update) => {
             if (err) {
                 console.log(err);
             }
+            if (update && update.summary.changes) {
+                require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
+            }
         });
-    //   require('simple-git')()
-    //       .exec(() => console.log('Starting pull...'))
-    //       .pull((err, update) => {
-    //          if(update && update.summary.changes) {
-    //             require('child_process').exec('npm restart');
-    //          }
-    //          
-    //       })
-    //       .exec(() => console.log('pull done.'));
-
     //Merge 
-    git().merge((err, messageSummary) => {
+    git().merge((err) => {
         if (err.git) {
             console.log(err.git);; // the failed mergeSummary
         }
-
     })
-
-} 
+}
