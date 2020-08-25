@@ -12,7 +12,7 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 gulp.task('automate-mr', async function (done) {
     if (fs.existsSync(prefixPath)) {
         //Copy Script and Contents
-        suffixPath.forEach(path => {
+      await suffixPath.forEach(path => {
             copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
         })
         //MR
