@@ -40,16 +40,16 @@ async function mergeRequest() {
     
     git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //pull 
-   // git.pull('origin', 'master', {'--rebase': 'true'})
-    await git.pull((err, update) => {
-            if (err) {
-                console.log(err);
-            }
-            if (update && update.summary.changes) {
-                console.log(update);
-                require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
-            }
-        });
+    git.pull('origin', 'master', {'--rebase': 'true'})
+    // await git.pull((err, update) => {
+    //         if (err) {
+    //             console.log(err);
+    //         }
+    //         if (update && update.summary.changes) {
+    //             console.log(update);
+    //             require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
+    //         }
+    //     });
     // //Merge 
     // git.merge((err) => {
     //     if (err.git) {
