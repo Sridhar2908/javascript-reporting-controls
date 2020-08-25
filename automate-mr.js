@@ -43,30 +43,33 @@ function mergeRequest() {
 
     shelljs.exec('git push');
 
-   // shelljs.exec('git pull')
+    // shelljs.exec('git pull')
 
-//pull 
-// git().pull('origin', 'master', {'--rebase': 'true'})
-    
-//   require('simple-git')()
-//       .exec(() => console.log('Starting pull...'))
-//       .pull((err, update) => {
-//          if(update && update.summary.changes) {
-//             require('child_process').exec('npm restart');
-//          }
-//          if(err)
-//          {
-//              console.log(err);
-//          }
-//       })
-//       .exec(() => console.log('pull done.'));
+    //pull 
+    // git().pull('origin', 'master', {'--rebase': 'true'})
+    // update repo and when there are changes, restart the app
+    git()
+        .pull((err, update) => {
+            if (err) {
+                console.log(err);
+            }
+        });
+    //   require('simple-git')()
+    //       .exec(() => console.log('Starting pull...'))
+    //       .pull((err, update) => {
+    //          if(update && update.summary.changes) {
+    //             require('child_process').exec('npm restart');
+    //          }
+    //          
+    //       })
+    //       .exec(() => console.log('pull done.'));
 
-   //Merge 
-   git().merge((err) => {
-    if (err.git) {
-        console.log(err.git);; // the failed mergeSummary
-    }
-    
- })
+    //Merge 
+    git().merge((err, messageSummary) => {
+        if (err.git) {
+            console.log(err.git);; // the failed mergeSummary
+        }
+
+    })
 
 } 
