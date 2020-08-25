@@ -8,7 +8,7 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 { srcPath: "scripts\\*.js", destPath: "Scripts\\" },
 { srcPath: "themes\\**\\*", destPath: "Content\\" }];
 
-gulp.task('automate-mr', function (done) {
+gulp.task('merge-request', function (done) {
 
     if (fs.existsSync(prefixPath)) {
         //Copy Script and Contents
@@ -31,17 +31,19 @@ function copyFiles(src, dest) {
     gulp.src(src)
         .pipe(gulp.dest(dest));
 }
-function mergeRequest() {
+async function mergeRequest() {
     git()
         .init()
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit("automate MR 10")
+        .commit("merge-request-js-report-control")
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
     shelljs.exec('git push');
+
+    await pull();
 
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
@@ -59,15 +61,15 @@ function mergeRequest() {
     //   }
 }
 function pull() {
-    // git()
-    //     .exec(() => console.log('Starting pull...'))
-    //     .pull((err, update) => {
-    //         if (update && update.summary.changes) {
-    //             require('child_process').exec('npm restart');
-    //         }
-    //         if (err) {
-    //             console.log(err);
-    //         }
-    //     })
-    //     .exec(() => console.log('pull done.'));
+    git()
+        .exec(() => console.log('Starting pull...'))
+        .pull((err, update) => {
+            if (update && update.summary.changes) {
+                require('child_process').exec('npm restart');
+            }
+            if (err) {
+                console.log(err);
+            }
+        })
+        .exec(() => console.log('pull done.'));
 }
