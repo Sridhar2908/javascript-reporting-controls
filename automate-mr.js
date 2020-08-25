@@ -61,15 +61,12 @@ async function mergeRequest() {
     //   }
 }
 function pull() {
-    git()
-        .exec(() => console.log('Starting pull...'))
-        .pull((err, update) => {
-            if (update && update.summary.changes) {
-                require('child_process').exec('npm restart');
-            }
-            if (err) {
-                console.log(err);
-            }
-        })
-        .exec(() => console.log('pull done.'));
+    require('simple-git')()
+     .exec(() => console.log('Starting pull...'))
+     .pull((err, update) => {
+        if(update && update.summary.changes) {
+           require('child_process').exec('npm restart');
+        }
+     })
+     .exec(() => console.log('pull done.'));
 }
