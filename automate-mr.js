@@ -37,7 +37,8 @@ function mergeRequest() {
         .commit("merge-request-js-report-control 4.25")
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
         //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
-    shelljs.exec('git push');
+    
+        git.push();
     //pull 
     // git.pull('origin', 'master', {'--rebase': 'true'})
     // git.pull((err, update) => {
