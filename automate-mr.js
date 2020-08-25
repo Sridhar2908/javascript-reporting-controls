@@ -41,7 +41,7 @@ async function mergeRequest() {
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
-    shelljs.exec('git push');
+  await  shelljs.exec('git push');
 
    // await pull();
 
