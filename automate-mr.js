@@ -17,7 +17,7 @@ gulp.task('automate-mr',async function (done) {
         })
         //MR
         mergeRequest();
-       await pull();
+        pull();
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
