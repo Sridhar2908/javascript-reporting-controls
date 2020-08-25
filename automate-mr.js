@@ -66,6 +66,7 @@ function mergeRequest() {
     if (err.git) {
        mergeSummary = err.git; // the failed mergeSummary
     }
+    console.log(mergeSummary);
  })
 
 } 
