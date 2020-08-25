@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var fs = require('fs');
 const git = require('simple-git');
 var shelljs = require('shelljs');
-var prefixPath = "C:\\Users\\Public\\Documents\\Bold Reports\\Embedded Reporting\\Samples\\Common\\Javascript\\assets";
+var prefixPath = "C:\\Program Files (x86)\\Bold Reports\\Embedded Reporting\\Javascript\\assets";
 var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" },
 { srcPath: "scripts\\data-visualization\\**", destPath: "Scripts\\data-visualization" },
 { srcPath: "scripts\\*.js", destPath: "Scripts\\" },
@@ -43,29 +43,29 @@ function mergeRequest() {
 
     shelljs.exec('git push');
 
-    shelljs.exec('git pull')
+   // shelljs.exec('git pull')
 
-//    git()
-//      .pull();
-    //   require('simple-git')()
-    //   .exec(() => console.log('Starting pull...'))
-    //   .pull((err, update) => {
-    //      if(update && update.summary.changes) {
-    //         require('child_process').exec('npm restart');
-    //      }
-    //      if(err)
-    //      {
-    //          console.log(err);
-    //      }
-    //   })
-    //   .exec(() => console.log('pull done.'));
+//pull 
+git().pull('origin', 'master', {'--rebase': 'true'})
+    
+  require('simple-git')()
+      .exec(() => console.log('Starting pull...'))
+      .pull((err, update) => {
+         if(update && update.summary.changes) {
+            require('child_process').exec('npm restart');
+         }
+         if(err)
+         {
+             console.log(err);
+         }
+      })
+      .exec(() => console.log('pull done.'));
 
-    try {
-        const mergeSummary = git().merge();
-        console.log("Merged");
+   //Merge 
+   git().merge((err, mergeSummary) => {
+    if (err.git) {
+       mergeSummary = err.git; // the failed mergeSummary
     }
-    catch (e) {
-        console.log(e);
+ })
 
-    }
-}
+} 
