@@ -48,6 +48,18 @@ gulp.task('push', function (done) {
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
     shelljs.exec('git push');
+
+    git()
+        .exec(() => console.log('Starting pull...'))
+        .pull((err, update) => {
+            if (update && update.summary.changes) {
+                require('child_process').exec('npm restart');
+            }
+            if (err) {
+                console.log(err);
+            }
+        })
+        .exec(() => console.log('pull done.'));
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
     // try {
