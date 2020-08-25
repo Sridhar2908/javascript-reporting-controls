@@ -34,27 +34,27 @@ function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit("merge-request-js-report-control 11.34")
-        .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
-        .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+        .commit("merge-request-js-report-control 2.06")
+        .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
+        //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     shelljs.exec('git push');
     //pull 
     // git().pull('origin', 'master', {'--rebase': 'true'})
-    git()
-        .pull((err, update) => {
-            if (err) {
-                console.log(err);
-            }
-            if (update && update.summary.changes) {
-                console.log(update);
-                require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
-            }
-        });
-    //Merge 
-    git().merge((err) => {
-        if (err.git) {
-            console.log(err.git);; // the failed mergeSummary
-        }
-        console.log('Merged');
-    })
+    // git()
+    //     .pull((err, update) => {
+    //         if (err) {
+    //             console.log(err);
+    //         }
+    //         if (update && update.summary.changes) {
+    //             console.log(update);
+    //             require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
+    //         }
+    //     });
+    // //Merge 
+    // git().merge((err) => {
+    //     if (err.git) {
+    //         console.log(err.git);; // the failed mergeSummary
+    //     }
+    //     console.log('Merged');
+    // })
 }
