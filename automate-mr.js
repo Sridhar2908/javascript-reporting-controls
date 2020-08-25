@@ -16,7 +16,7 @@ gulp.task('automate-mr',async function (done) {
             copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
         })
         //MR
-       await mergeRequest();
+        mergeRequest();
        await pull();
     }
     else {
