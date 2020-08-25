@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var fs = require('fs');
 const git = require('simple-git');
 var shelljs = require('shelljs');
+var runSequence = require('run-sequence');
 var prefixPath = "C:\\Users\\Public\\Documents\\Bold Reports\\Embedded Reporting\\Samples\\Common\\Javascript\\assets";
 var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" },
 { srcPath: "scripts\\data-visualization\\**", destPath: "Scripts\\data-visualization" },
@@ -15,22 +16,16 @@ gulp.task('automate-mr', function (done) {
             copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
         })
         //MR
-        mergeRequest();
+        runSequence('push', 'pull');
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
         process.exitCode(1);
     }
-
     done();
-
 })
 
-function copyFiles(src, dest) {
-    gulp.src(src)
-        .pipe(gulp.dest(dest));
-}
-async function mergeRequest() {
+gulp.task('push', function (done) {
     git()
         .init()
         .addConfig('user.name', 'Sridhar2908')
@@ -40,20 +35,7 @@ async function mergeRequest() {
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
-    await shelljs.exec('git push');
-
-    git()
-        .exec(() => console.log('Starting pull...'))
-        .pull((err, update) => {
-            if (update && update.summary.changes) {
-                require('child_process').exec('npm restart');
-            }
-            if (err) {
-                console.log(err);
-            }
-        })
-        .exec(() => console.log('pull done.'));
-
+    shelljs.exec('git push');
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
     // try {
@@ -68,4 +50,25 @@ async function mergeRequest() {
     //    console.log(e);
     //    // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
     //   }
+    done();
+});
+
+gulp.task('pull', function (done) {
+    git()
+        .exec(() => console.log('Starting pull...'))
+        .pull((err, update) => {
+            if (update && update.summary.changes) {
+                require('child_process').exec('npm restart');
+            }
+            if (err) {
+                console.log(err);
+            }
+        })
+        .exec(() => console.log('pull done.'));
+    done();
+})
+
+function copyFiles(src, dest) {
+    gulp.src(src)
+        .pipe(gulp.dest(dest));
 }
