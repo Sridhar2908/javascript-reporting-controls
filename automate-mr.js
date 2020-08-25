@@ -31,7 +31,7 @@ function copyFiles(src, dest) {
     gulp.src(src)
         .pipe(gulp.dest(dest));
 }
-async function mergeRequest() {
+function mergeRequest() {
     git()
         .init()
         .addConfig('user.name', 'Sridhar2908')
@@ -41,10 +41,20 @@ async function mergeRequest() {
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
-  await  shelljs.exec('git push');
+  shelljs.exec('git push');
 
-   pull();
-
+  require('simple-git')()
+  .exec(() => console.log('Starting pull...'))
+  .pull((err, update) => {
+     if(update && update.summary.changes) {
+        require('child_process').exec('npm restart');
+     }
+     if(err)
+     {
+         console.log(err);
+     }
+  })
+  .exec(() => console.log('pull done.'));
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
     // try {
@@ -61,16 +71,5 @@ async function mergeRequest() {
     //   }
 }
 function pull() {
-    require('simple-git')()
-     .exec(() => console.log('Starting pull...'))
-     .pull((err, update) => {
-        if(update && update.summary.changes) {
-           require('child_process').exec('npm restart');
-        }
-        if(err)
-        {
-            console.log(err);
-        }
-     })
-     .exec(() => console.log('pull done.'));
+  
 }
