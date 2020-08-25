@@ -29,7 +29,7 @@ function copyFiles(src, dest) {
     gulp.src(src)
         .pipe(gulp.dest(dest));
 }
-function mergeRequest() {
+async function mergeRequest() {
     git.init()
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
@@ -41,7 +41,7 @@ function mergeRequest() {
     git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //pull 
    // git.pull('origin', 'master', {'--rebase': 'true'})
-    git.pull((err, update) => {
+    await git.pull((err, update) => {
             if (err) {
                 console.log(err);
             }
