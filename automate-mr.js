@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
-const git = require('simple-git');
+const simpleGit = require('simple-git');
+const git = simpleGit();
 var shelljs = require('shelljs');
 var prefixPath = "C:\\Program Files (x86)\\Bold Reports\\Embedded Reporting\\Javascript\\assets";
 var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" },
@@ -29,19 +30,17 @@ function copyFiles(src, dest) {
         .pipe(gulp.dest(dest));
 }
 function mergeRequest() {
-    git()
-        .init()
+    git.init()
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit("merge-request-js-report-control 2.06")
+        .commit("merge-request-js-report-control 4.25")
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
         //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     shelljs.exec('git push');
     //pull 
-    // git().pull('origin', 'master', {'--rebase': 'true'})
-    // git()
-    //     .pull((err, update) => {
+    // git.pull('origin', 'master', {'--rebase': 'true'})
+    // git.pull((err, update) => {
     //         if (err) {
     //             console.log(err);
     //         }
@@ -51,7 +50,7 @@ function mergeRequest() {
     //         }
     //     });
     // //Merge 
-    // git().merge((err) => {
+    // git.merge((err) => {
     //     if (err.git) {
     //         console.log(err.git);; // the failed mergeSummary
     //     }
