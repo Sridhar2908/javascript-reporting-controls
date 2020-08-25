@@ -43,7 +43,7 @@ async function mergeRequest() {
 
     shelljs.exec('git push');
 
-    await pull();
+   // await pull();
 
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
