@@ -51,7 +51,7 @@ async function mergeRequest() {
     //         }
     //     });
     // //Merge 
-  await   git.merge((err) => {
+    git.merge((err) => {
         if (err.git) {
             console.log(err.git);
             process.exitCode(1); // the failed mergeSummary
