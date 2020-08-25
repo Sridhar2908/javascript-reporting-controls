@@ -46,8 +46,7 @@ function mergeRequest() {
    // shelljs.exec('git pull')
 
    git()
-     .pull()
-     .tags((err, tags) => console.log("Latest available tag: %s", tags.latest));
+     .pull();
     //   require('simple-git')()
     //   .exec(() => console.log('Starting pull...'))
     //   .pull((err, update) => {
