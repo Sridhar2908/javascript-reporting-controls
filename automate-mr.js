@@ -46,6 +46,7 @@ function mergeRequest() {
                 console.log(err);
             }
             if (update && update.summary.changes) {
+                console.log(update);
                 require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
             }
         });
@@ -54,5 +55,6 @@ function mergeRequest() {
         if (err.git) {
             console.log(err.git);; // the failed mergeSummary
         }
+        console.log('Merged');
     })
 }
