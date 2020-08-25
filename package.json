@@ -29,12 +29,10 @@
   "license": "SEE LICENSE IN README.md",
   "dependencies": {
     "@boldreports/global": "*",
-    "fs-extra": "^9.0.1",
     "gulp": "3.9.1",
     "jquery": "*",
     "jquery-validation": "*",
     "jsrender": "*",
-    "run-sequence": "^2.2.1",
     "shelljs": "^0.8.4",
     "simple-git": "^2.19.0"
   },
