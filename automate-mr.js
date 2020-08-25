@@ -43,10 +43,10 @@ function mergeRequest() {
 
     shelljs.exec('git push');
 
-   // shelljs.exec('git pull')
+    shelljs.exec('git pull')
 
-   git()
-     .pull();
+//    git()
+//      .pull();
     //   require('simple-git')()
     //   .exec(() => console.log('Starting pull...'))
     //   .pull((err, update) => {
