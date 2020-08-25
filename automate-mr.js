@@ -34,23 +34,17 @@ async function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit(`merge-request-js-report-control 4.55`)
+        .commit(`merge-request-js-report-control 5.10`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
-    //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
     await git.push(['-u', 'origin', 'automate-mr'], () => console.log('Push is done'));
     //pull 
-    //  git.pull('origin', 'master', {'--rebase': 'true'})
-    await git.pull((err, update) => {
+    await git.pull((err) => {
         if (err) {
             console.log(err);
         }
-        if (update && update.summary.changes) {
-            console.log(update);
-            require('child_process').exec('npm restart'); // update repo and when there are changes, restart the app
-        }
     });
-    // //Merge 
+    //Merge 
     git.merge((err) => {
         if (err.git) {
             console.log(err.git);
