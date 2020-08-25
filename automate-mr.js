@@ -34,7 +34,7 @@ async function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit("merge-request-js-report-control 4.40")
+        .commit(`merge-request-js-report-control ${Date.now}`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
         //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     
@@ -51,10 +51,11 @@ async function mergeRequest() {
     //         }
     //     });
     // //Merge 
-    // git.merge((err) => {
-    //     if (err.git) {
-    //         console.log(err.git);; // the failed mergeSummary
-    //     }
-    //     console.log('Merged');
-    // })
+    git.merge((err) => {
+        if (err.git) {
+            console.log(err.git);
+            process.exitCode(1); // the failed mergeSummary
+        }
+        console.log('Merged');
+    })
 }
