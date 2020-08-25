@@ -25,6 +25,19 @@ gulp.task('copy-build-files', function (done) {
 })
 
 gulp.task('push', function (done) {
+    
+    if (fs.existsSync(prefixPath)) {
+        //Copy Script and Contents
+        suffixPath.forEach(path => {
+            copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
+        })
+        //MR
+    }
+    else {
+        console.log("Check the build is installed correct path which is under C : ");
+        process.exitCode(1);
+    }
+    
     git()
         .init()
         .addConfig('user.name', 'Sridhar2908')
@@ -52,7 +65,7 @@ gulp.task('push', function (done) {
     done();
 });
 
-gulp.task('pull', ['copy-build-files', 'push'], function (done) {
+gulp.task('pull', ['push'], function (done) {
     git()
         .exec(() => console.log('Starting pull...'))
         .pull((err, update) => {
