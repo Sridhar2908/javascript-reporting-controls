@@ -62,11 +62,11 @@ function mergeRequest() {
 //       .exec(() => console.log('pull done.'));
 
    //Merge 
-   git().merge((err, mergeSummary) => {
-    if (err.git) {
-       mergeSummary = err.git; // the failed mergeSummary
+   git().merge((err) => {
+    if (err) {
+        console.log(err);; // the failed mergeSummary
     }
-    console.log(mergeSummary);
+    
  })
 
 } 
