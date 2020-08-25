@@ -8,7 +8,7 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 { srcPath: "scripts\\*.js", destPath: "Scripts\\" },
 { srcPath: "themes\\**\\*", destPath: "Content\\" }];
 
-gulp.task('automate-mr',async function (done) {
+gulp.task('automate-mr', async function (done) {
 
     if (fs.existsSync(prefixPath)) {
         //Copy Script and Contents
@@ -17,7 +17,7 @@ gulp.task('automate-mr',async function (done) {
         })
         //MR
         mergeRequest();
-       // pull();
+        pull();
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
@@ -41,7 +41,7 @@ function mergeRequest() {
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls')
         .push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
-    shelljs.exec('git push');
+  //  shelljs.exec('git push');
 
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
@@ -60,15 +60,16 @@ function mergeRequest() {
 }
 function pull() {
 
-    git()
-        .exec(() => console.log('Starting pull...'))
-        .pull((err, update) => {
-            if (update && update.summary.changes) {
-                require('child_process').exec('npm restart');
-            }
-            if (err) {
-                console.log(err);
-            }
-        })
-        .exec(() => console.log('pull done.'));
+    shelljs.exec('git push');
+    // git()
+    //     .exec(() => console.log('Starting pull...'))
+    //     .pull((err, update) => {
+    //         if (update && update.summary.changes) {
+    //             require('child_process').exec('npm restart');
+    //         }
+    //         if (err) {
+    //             console.log(err);
+    //         }
+    //     })
+    //     .exec(() => console.log('pull done.'));
 }
