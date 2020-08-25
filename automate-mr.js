@@ -34,11 +34,11 @@ async function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit(`merge-request-js-report-control 4.50`)
+        .commit(`merge-request-js-report-control 4.55`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
     //.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
 
-    await git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+    await git.push(['-u', 'origin', 'automate-mr'], () => console.log('Push is done'));
     //pull 
     //  git.pull('origin', 'master', {'--rebase': 'true'})
     await git.pull((err, update) => {
