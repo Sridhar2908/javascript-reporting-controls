@@ -2,42 +2,36 @@ var gulp = require('gulp');
 var fs = require('fs');
 const git = require('simple-git');
 var shelljs = require('shelljs');
-var runSequence = require('run-sequence');
 var prefixPath = "C:\\Users\\Public\\Documents\\Bold Reports\\Embedded Reporting\\Samples\\Common\\Javascript\\assets";
 var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" },
 { srcPath: "scripts\\data-visualization\\**", destPath: "Scripts\\data-visualization" },
 { srcPath: "scripts\\*.js", destPath: "Scripts\\" },
 { srcPath: "themes\\**\\*", destPath: "Content\\" }];
 
-gulp.task('copy-build-files', function (done) {
-    if (fs.existsSync(prefixPath)) {
-        //Copy Script and Contents
-        suffixPath.forEach(path => {
-            copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
-        })
-        //MR
-    }
-    else {
-        console.log("Check the build is installed correct path which is under C : ");
-        process.exitCode(1);
-    }
-    done();
-})
+gulp.task('automate-mr',async function (done) {
 
-gulp.task('push', function (done) {
-    
     if (fs.existsSync(prefixPath)) {
         //Copy Script and Contents
         suffixPath.forEach(path => {
             copyFiles(`${prefixPath}\\${path.srcPath}`, `CopiedBuild\\${path.destPath}`);
         })
         //MR
+       await mergeRequest();
+       await pull();
     }
     else {
         console.log("Check the build is installed correct path which is under C : ");
         process.exitCode(1);
     }
-    
+
+    done();
+});
+
+function copyFiles(src, dest) {
+    gulp.src(src)
+        .pipe(gulp.dest(dest));
+}
+function mergeRequest() {
     git()
         .init()
         .addConfig('user.name', 'Sridhar2908')
@@ -49,17 +43,6 @@ gulp.task('push', function (done) {
 
     shelljs.exec('git push');
 
-    git()
-        .exec(() => console.log('Starting pull...'))
-        .pull((err, update) => {
-            if (update && update.summary.changes) {
-                require('child_process').exec('npm restart');
-            }
-            if (err) {
-                console.log(err);
-            }
-        })
-        .exec(() => console.log('pull done.'));
     // const simpleGit = require('simple-git');
     // const git = simpleGit(); 
     // try {
@@ -74,10 +57,9 @@ gulp.task('push', function (done) {
     //    console.log(e);
     //    // console.error(`Merge resulted in ${ err.git.conflicts.length } conflicts`);
     //   }
-    done();
-});
+}
+function pull() {
 
-gulp.task('pull', ['push'], function (done) {
     git()
         .exec(() => console.log('Starting pull...'))
         .pull((err, update) => {
@@ -89,10 +71,4 @@ gulp.task('pull', ['push'], function (done) {
             }
         })
         .exec(() => console.log('pull done.'));
-    done();
-})
-
-function copyFiles(src, dest) {
-    gulp.src(src)
-        .pipe(gulp.dest(dest));
 }
