@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
 const simpleGit = require('simple-git');
+var shellJs = require('shelljs')
 const git = simpleGit();
 var prefixPath = "C:\\Program Files (x86)\\Bold Reports\\Embedded Reporting\\Javascript\\assets";
 var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" },
@@ -36,7 +37,8 @@ async function mergeRequest() {
         .commit(`merge-request-js-report-control 9.45`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
 
-    await git.push('origin', 'master');;
+        shellJs.exec('git push')
+    //await git.push('origin', 'master');;
     //pull 
     await git.pull((err) => {
         if (err) {
