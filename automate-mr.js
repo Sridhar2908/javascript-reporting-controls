@@ -37,7 +37,7 @@ async function mergeRequest() {
         .commit(`merge-request-js-report-control 9.45`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
 
-        shellJs.exec('git push')
+    await    shellJs.exec('git push')
     //await git.push('origin', 'master');;
     //pull 
     await git.pull((err) => {
