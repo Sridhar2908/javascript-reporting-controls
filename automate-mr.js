@@ -33,10 +33,10 @@ async function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit(`merge-request-js-report-control`)
+        .commit(`merge-request-js-report-control 9.45`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
 
-    await git.push(['-u', 'origin', 'automate-mr'], () => console.log('Push is done'));
+    await git.push('origin', 'master');;
     //pull 
     await git.pull((err) => {
         if (err) {
