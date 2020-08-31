@@ -47,7 +47,7 @@ async function mergeRequest() {
     git.merge((err) => {
         if (err.git) {
             console.log(err.git);// the failed merge Summary
-            process.exitCode(1); 
+            process.exitCode(1);
         }
         console.log('Merged');
     })
