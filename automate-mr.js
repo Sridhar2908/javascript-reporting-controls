@@ -9,13 +9,12 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 { srcPath: "themes\\**\\*", destPath: "Content\\" }];
 
 gulp.task('merge-request', function (done) {
-
     if (fs.existsSync(prefixPath)) {
-        //Copy Script and Contents
+    //  Copy Script and Contents
         suffixPath.forEach(path => {
             copyFiles(`${prefixPath}\\${path.srcPath}`, `Build-Files\\${path.destPath}`);
         })
-        //MR
+    //  MR
         mergeRequest();
     }
     else {
@@ -35,10 +34,10 @@ async function mergeRequest() {
         .add('./*')
         .commit(`Merge Request 12,45`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git');
-        // .push('origin', 'automate-mr');
-       
+    //.push('origin', 'automate-mr');
+
     await git().push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
-  //  shellJs.exec(`git push -b ${branch}`)
+    //shellJs.exec(`git push -b ${branch}`)
     //pull 
     await git().pull((err) => {
         if (err) {
@@ -52,5 +51,5 @@ async function mergeRequest() {
             process.exitCode(1);
         }
         console.log('Merged');
-    })
+    });
 }
