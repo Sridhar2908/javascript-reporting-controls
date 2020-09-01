@@ -34,16 +34,17 @@ async function mergeRequest() {
         .add('./*')
         .commit(`Merge Request 3.10`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git');
+        await git().pull((err) => {
+            if (err) {
+                console.log(err);
+            }
+        });
     //.push('origin', 'automate-mr');
 
     await git().push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
     //shellJs.exec(`git push -b ${branch}`)
     //pull 
-    await git().pull((err) => {
-        if (err) {
-            console.log(err);
-        }
-    });
+   
     // Merge 
     git().merge((err) => {
         if (err.git) {
