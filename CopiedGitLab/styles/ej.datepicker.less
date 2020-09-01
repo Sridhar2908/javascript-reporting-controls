@@ -1,0 +1,1084 @@
+@import "definition.less";
+
+/*------------DatePicker themes -------------*/
+@{e-widget}.e-datepicker table td.e-disable,
+@{e-widget}.e-datepicker.e-dp-restrict-show table td.e-hidedate,@{e-widget}.e-datepicker .e-footer.e-footer-disable  {
+    opacity: 1;
+    color: @disable-datepicker-text;
+    visibility: visible;
+    cursor:default;
+}
+
+@{e-widget}.e-datepicker table td.e-hidedate {
+    visibility: hidden;
+}
+
+@{e-widget}.e-datepicker:focus {
+    outline: none;
+}
+@{e-widget}.e-datewidget .e-in-wrap {
+    border-color: @content-border-color;
+
+    & when (@skin= "material") {
+        /*material*/
+        border-width: 0 0 1px 0;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget}.e-datewidget .e-in-wrap:before, @{e-widget}.e-datewidget .e-in-wrap:after {
+    & when (@skin= "material") {
+        background: @accent-color;
+    }
+}
+
+@{e-widget}.e-datewidget.e-widget:hover .e-in-wrap {
+    & when (@skin= "office-365") {
+       border-color:@neutral-secondary-alt;
+    }
+    & when not (@skin= "office-365") {
+        /*other*/
+    .focus-border-color();
+    }
+}
+
+@{e-widget}.e-datewidget.e-disable:hover .e-in-wrap {
+    & when (@skin = "office-365") {
+        border-color: @neutral-tertiary-alt;
+    }
+}
+
+@{e-widget}.e-datewidget.e-focus .e-in-wrap,@{e-widget}.e-datewidget.e-focus .e-in-wrap:hover {
+    & when (@skin= "material") {
+        /*material*/
+        box-shadow: none;
+    }
+
+    & when not (@skin= "material") {
+        /*other*/
+        .focus-border-color();
+        box-shadow: 0 0 @shadow-bg-size @bs-shadow-bg-color;
+    }
+}
+
+@{e-widget}.e-datewidget.e-widget .e-select:active:hover {
+    & when (@skin= "office-365") {
+        background-color: @theme-primary;
+        color: @neutral-white;
+    }
+}
+
+@{e-widget}.e-datewidget .e-select, @{e-widget}.e-datewidget.e-rtl .e-select, @{e-widget}.e-ntouch.e-datewidget .e-disable.e-select:hover {
+    & when (@skin= "material") {
+        /*material*/
+        background-color: @content-bg-color;
+        color: fade(@base-font-color,54%);
+    }
+
+    & when (@skin= "office-365") {
+        /*office 365*/
+        background-color: @neutral-white;
+        color: @neutral-light-font;
+    }
+    & when not (@skin = "material") and not (@skin = "office-365") {
+        /*other*/
+        .bs-default-gradient();
+        border-color: @content-border-color;
+        color: @default-icon-color;
+        .border-selection();
+    }
+}
+
+@{e-widget}.e-datewidget .e-select, @{e-widget}.e-datewidget.e-rtl .e-select, @{e-widget}.e-ntouch.e-datewidget .e-disable.e-select:hover {
+    .office-button-bg-color();
+}
+
+@{e-widget}.e-ntouch.e-datewidget .e-select:hover {
+    & when (@skin= "material") {
+        /*material*/
+        background-color: @content-bg-color;
+        color: fade(@base-font-color,54%);
+        border-color: @content-border-color;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        background-color: @neutral-light;
+        color: @theme-light-font;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        .hover-gradient();
+        color: @hover-icon-color;
+        border-color: @content-border-color;
+    }
+}
+
+@{e-widget}.e-datewidget .e-select.e-active {
+    .active-gradient();
+    border-color: @active-bg-stcolor;
+}
+
+@{e-widget}.e-datewidget .e-input {
+    background-color: @content-bg-color;
+
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,87%);
+        font-size: 13px;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: @theme-light-font;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    & when not (@skin= "material") and not (@skin= "material") {
+        /*other*/
+        color: @content-font-color;
+    }
+}
+
+@{e-widget}.e-datepicker table td.other-month,
+@{e-widget}.e-datepicker .e-allyear-first,
+@{e-widget}.e-datepicker .e-allyear-last,
+@{e-widget}.e-datepicker .e-year-first,
+@{e-widget}.e-datepicker .e-year-last {
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,38%);
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: #adadad; // need to add variable in office-365 defn file.
+    }
+
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @active-bg-stcolor;
+    }
+}
+
+@{e-widget}.e-datepicker table td.e-dp-weekend {
+    color: @error-font-color;
+}
+
+@{e-widget}.e-datepicker.e-calendar {
+    & when (@skin= "material") {
+        /*material*/
+        background: @content-bg-color;
+        font-size: 12px;
+        width: 308px;
+        padding: 0 10px 10px 10px;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        padding: 10px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    border-color: @content-border-color;
+    background-color: @content-bg-color;
+}
+
+@{e-widget}.e-datepicker .e-header, @{e-widget}.e-datetime-popup .e-timecontainer .e-header {
+    .header-gradient();
+    font-weight: @header-font-weight;
+
+    & when (@skin= "material") {
+        /*material*/
+        background: @content-bg-color;
+        color: fade(@base-font-color,87%);
+        border-bottom: 0;
+        font-size: @header-font-size;
+    }
+     & when (@skin= "office-365") {
+        font-weight: 300;
+        color: @theme-light-font;
+        font-size: @header-font-size;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        border-bottom: @border-size @border-type @header-border-color;
+        font-size: @header-font-size;
+        color: @header-font-color;
+    }
+
+   
+}
+
+@{e-widget}.e-datepicker .e-header:hover > span {
+    color: @hover-font-color;
+}
+
+@{e-widget}.e-datepicker .e-footer {
+    & when (@skin= "material") {
+        /*material*/
+        color: @accent-color;
+        text-transform: uppercase;
+        border: none;
+        width: 94%;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: @theme-primary;
+        font-size: 14px;
+        font-weight: 400;
+        width:20%;
+        float: right;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @default-font-color;
+        border: @border-size @border-type transparent;
+    }
+}
+
+@{e-widget}.e-datepicker .e-footer.e-btn.e-select {
+    & when not (@skin= "material") {
+        /*other*/
+        background: transparent;
+        width: 100%;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker .e-footer:hover {
+    & when (@skin= "material") {
+        /*material*/
+        color: @accent-color;
+        border: none;
+        background-color: fade(@base-font-color,12%);
+        border-radius: 0px;
+        box-shadow: none;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        border: none;
+        box-shadow: none;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        .hover-gradient();
+        color: @hover-font-color;
+        border: @border-size @border-type @hover-border-color;
+    }
+
+    .transparent-border();
+}
+
+@{e-widget}.e-datepicker .e-text {
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,87%);
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: @neutral-light-font-alt;
+        font-weight: 300;
+        font-size: 17px;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @header-font-color;
+    }
+}
+
+@{e-widget}.e-datepicker .e-week-header, @{e-widget}.e-ntouch.e-datepicker .e-week-header:hover {
+    .default-gradient();
+
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,38%);
+        background: @content-bg-color;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: @neutral-light-font;
+        background: transparent;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @default-font-color;
+    }
+
+    border-bottom: @border-size @border-type transparent;
+}
+
+@{e-widget}.e-ntouch.e-datepicker table td:hover,@{e-widget}.e-datepicker td.e-state-hover, @{e-widget}.e-ntouch.e-datepicker .current-month.e-state-default.e-special-day:hover {
+    .hover-gradient();
+    border-color: @hover-border-color;
+    box-shadow: 0 0 0 transparent inset;
+
+    & when (@skin= "material") {
+        /*material*/
+        background: transparent;
+        color: fade(@base-font-color,87%);
+        border-radius: 50%;
+    }
+
+    & when (@skin= "office-365") {
+        /*office-365*/
+        color: @theme-light-font;
+        background-color: transparent;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @hover-font-color;
+        border-radius: 4px;
+    }
+}
+@{e-widget}.e-datepicker table td.e-weeknumber,@{e-widget}.e-datepicker table td.e-weeknumber:hover{
+    background:transparent;
+}
+
+@{e-widget}.e-datepicker td.e-state-hover {
+    & when (@skin= "material") {
+        /*material*/
+        color: @accent-color;
+        background: transparent;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker table td.e-disable:hover,
+@{e-widget}.e-ntouch.e-datepicker table td.e-hidedate:hover {
+    background: none;
+    border-color: none;
+
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,38%);
+    }
+
+    & when not (@skin= "material") {
+        /*other*/
+        color: @disable-datepicker-text;
+    }
+}
+
+@{e-widget}.e-datepicker .e-datepicker-days .e-selected-days {
+    .active-gradient();
+    border-radius: 0px;
+    box-shadow: 0 0 0 transparent inset; /*For flicker issue */
+    color: @active-font-color;
+}
+
+.e-work-week .e-week-day, .e-selected-week, .e-selected-month {
+    background-color: @default-bg-stcolor;
+    color: @default-font-color;
+}
+
+@{e-widget}.e-datepicker .e-header .e-icon {
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,54%);
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: @neutral-light-font;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @hover-icon-color;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker .e-header .e-prev.e-disable .e-arrow-sans-left:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-header .e-next.e-disable .e-arrow-sans-right:hover {
+    background-color: transparent;
+}
+
+@{e-widget}.e-ntouch.e-datepicker .e-arrow-sans-left:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-arrow-sans-right:hover {
+    & when (@skin= "material"), (@skin= "office-365") {
+        /*material*/
+        background-color: @content-bg-color;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        background-color: @hover-bg-stcolor;
+        border-radius: 4px 4px 4px 4px;
+    }
+
+    .material-borderRadius-datepicker();
+    border-color: @hover-border-color;
+}
+
+@{e-widget}.e-ntouch.e-datepicker .e-disable.e-arrow-sans-left:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-disable.e-arrow-sans-right:hover {
+    background: none;
+    border-radius: 0px;
+    cursor: default;
+    border-color: @hover-border-color;
+}
+
+
+@{e-widget}.e-datepicker .e-state-default{
+    & when not (@skin="material") and not (@skin="office-365") {
+        color: @content-font-color;
+        font-weight: @content-font-weight;
+    }
+
+    & when (@skin="material") {
+        color: fade(@base-font-color,87%);
+        font-size:14px;
+    }
+
+    & when (@skin="office-365") {
+        color: @theme-light-font;
+    }
+}
+
+@{e-widget}.e-datepicker table td.e-weeknumber, @{e-widget}.e-datepicker table td.e-weeknumber:hover {
+    & when (@skin="material") {
+        color: fade(@grey-light-font,54%);
+    }
+    & when (@skin="office-365") {
+        color: fade(@theme-light-font,54%);
+    }
+}
+
+@{e-widget}.e-datepicker .today {
+    & when (@skin= "material") {
+        /*material*/
+        color: @accent-color;
+        background: @content-bg-color;
+        box-shadow: 0 0 0 transparent inset;
+        .material-dateCircle-datepicker();
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        color: @default-font-color;
+        background-color: @default-bg-stcolor;
+        border-radius: 4px;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: @theme-light-font;
+        background-color: transparent;
+    }
+}
+
+@{e-widget}.e-datepicker .today:before,@{e-widget}.e-datepicker .today.e-state-hover::before {
+    & when (@skin= "office-365") {
+        background-color: @theme-lighter;
+        border:0px;
+    }
+}
+
+@{e-widget}.e-datepicker .other-month.e-active {
+    background: none;
+}
+
+@{e-widget}.e-datepicker .e-active,@{e-widget}.e-datepicker .e-active:hover, @{e-widget}.e-datepicker .e-active.e-state-hover {
+    .active-gradient();
+    box-shadow: 0 0 0 transparent inset; /*For flicker issue */
+    color: @active-font-color;
+    border-color: @active-border-color;
+
+    & when not (@skin= "office-365") {
+        border-radius: 4px;
+    }
+    & when (@skin= "material"){
+        color: @accent-font-color;
+    }
+    & when (@skin= "material"), (@skin= "office-365") {
+        /*material*/
+        background: transparent;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker table td.other-month:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-allyear-first:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-allyear-last:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-year-first:hover,
+@{e-widget}.e-ntouch.e-datepicker .e-year-last:hover {
+    background-color: transparent;
+    border-color: @hover-border-color;
+
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,38%);
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        color: #adadad;
+    }
+
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        /*other*/
+        //color: fade(@base-font-color,38%);
+    }
+}
+/*Disable State Styles*/
+
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-footer:hover {
+    background: none;
+    color: @default-font-color;
+    border: @border-size @border-type transparent;
+}
+
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable table td:hover,
+@{e-widget}.e-datepicker.e-popup.e-disable td.e-state-hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .current-month.e-state-default.e-special-day:hover {
+    background: none;
+    color: @content-font-color;
+    font-weight: @content-font-weight;
+    border-radius: 0px;
+    border-color: @hover-border-color;
+}
+
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-arrow-sans-left:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-arrow-sans-right:hover {
+    background: none;
+    border-radius: 0px;
+    border-color: @hover-border-color;
+}
+
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable table td.e-disable:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable table td.e-hidedate:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-disable.e-select:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-hidedate.e-select:hover {
+    background: none;
+    border-color: none;
+    color: @disable-datepicker-text;
+}
+
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable table td.other-month:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-allyear-first:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-allyear-last:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-year-first:hover,
+@{e-widget}.e-ntouch.e-datepicker.e-popup.e-disable .e-year-last:hover {
+    color: @bs-header-bg-stcolor;
+}
+
+@{e-widget}.e-ntouch.e-datepicker .e-datepicker-headertext:hover {
+    & when (@skin = "office-365") {
+        background-color: transparent;
+    }
+
+    & when not (@skin = "office-365") and not (@skin = "material") {
+        background: @hover-bg-stcolor;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker.e-disable .e-datepicker-headertext:hover {
+    background: none;
+}
+
+@{e-widget}.e-datepicker::-webkit-input-placeholder {
+    color: @content-font-color;
+}
+
+@{e-widget}.e-datepicker:-ms-input-placeholder {
+    color: @content-font-color;
+}
+
+@{e-widget}.e-datepicker::-moz-placeholder {
+    color: @content-font-color;
+}
+
+@{e-widget}.e-datepicker:-moz-placeholder {
+    color: @content-font-color;
+}
+
+@{e-widget}.e-ntouch.e-datepicker .e-datepicker-headertext:hover {
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,87%);
+        background: @content-bg-color;
+    }
+}
+
+@{e-widget}.e-datepicker .e-datepicker-days .e-state-default {
+    .material-dateDimension-datepicker();
+}
+
+@{e-widget}.e-datepicker .e-datepicker-months td, @{e-widget}.e-datepicker .e-datepicker-years td {
+    & when (@skin= "material") {
+        /*material*/
+        height: 50px;
+        position: relative;
+        z-index: 1;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        height: 40px;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 15px;
+    }
+}
+
+@{e-widget}.e-datepicker .e-datepicker-allyears td {
+    .material-monthDimension-datepicker();
+}
+
+@{e-widget}.e-datepicker .e-datepicker-months td:hover::before, @{e-widget}.e-datepicker .e-datepicker-years td:hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        top: 5px;
+        left: 18px;
+    }
+}
+
+@{e-widget}.e-datepicker .e-header .e-next, @{e-widget}.e-datepicker .e-header .e-prev {
+    .material-icon-alignment();
+    .material-datePicker-header();
+}
+
+@{e-widget}.e-datepicker .e-header .e-next:hover, @{e-widget}.e-datepicker .e-header .e-prev:hover {
+    & when (@skin = "office-365") {
+        color: @neutral-light-font-alt;
+    }
+}
+
+@{e-widget}.e-datepicker .e-header .e-prev {
+    .material-icon-alignment();
+}
+
+@{e-widget}.e-datepicker .e-header .e-text {
+    .material-datePicker-headerText();
+}
+
+@{e-widget}.e-datepicker .e-header .e-text .e-datepicker-headertext {
+    .material-headerText-padding();
+}
+
+@{e-widget}.e-datepicker .e-header .e-next {
+    .material-rightIcon-alignment();
+}
+
+@{e-widget}.e-datepicker .e-icon {
+    .material-icon-dimension();
+}
+
+@{e-widget}.e-datepicker .e-header .e-icon:before {
+    .material-icon-position();
+}
+
+@{e-widget}.e-datepicker .e-header .e-text {
+     & when (@skin= "material") {
+        /*material*/
+        width:79%
+    }
+
+    & when (@skin= "office-365") {
+        /*office-365*/
+        width:73%;
+    }
+}
+@{e-widget}.e-datepicker.e-headerlong .e-header .e-text {
+     & when (@skin= "material") {
+        /*material*/
+        width:85%
+    }
+
+    & when (@skin= "office-365") {
+        /*office-365*/
+        width:85%;
+    }
+}
+
+@{e-widget}.e-datepicker.e-rtl .e-header .e-text {
+    .material-header-RTL();
+}
+
+@{e-widget}.e-datepicker.e-rtl .e-header .e-prev {
+    .material-prevIcon-RTL();
+}
+
+@{e-widget}.e-datepicker.e-rtl .e-header .e-next {
+    .material-nextIcon-RTL();
+}
+
+@{e-widget}.e-datewidget.e-active .e-select {
+    & when (@skin= "material") {
+        /*material*/
+        color: @accent-color;
+    }
+}
+
+@{e-widget}.e-datewidget.e-active .e-select:hover {
+    & when (@skin= "material") {
+        /*material*/
+        color: @accent-color;
+    }
+}
+
+@{e-widget}.e-datepicker .today:hover {
+    & when (@skin= "material") {
+        /*material*/
+        background: @content-bg-color;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker table td:hover::before,
+@{e-widget}.e-ntouch.e-datepicker .current-month.e-state-default.e-special-day:hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        border-radius: 50%;
+        background: @grey-200;
+        color: @base-font-color;
+    }
+
+    & when (@skin= "office-365") {
+        background-color: @neutral-light;
+        color: @neutral-light-font;
+        border:0px;
+    }
+}
+
+@{e-widget}.e-datepicker table td::before {
+    & when (@skin= "material") {
+        /*material*/
+        width: 40px;
+        height: 40px;
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        z-index: -1;
+    }
+
+    & when (@skin= "office-365") {
+        /*office-365*/
+        width: 30px;
+        height: 30px;
+        content: "";
+        position: absolute;
+        left: 1px;
+        top: 5px;
+        z-index: -1;
+    }
+}
+@{e-widget}.e-datepicker table td.e-weeknumber:hover::before {
+     & when (@skin = "material") {
+         content: none;
+     }
+     & when  (@skin = "office-365") {
+         content: none;
+    }
+}
+@{e-widget}.e-datepicker.e-headerlong .e-datepicker-days .e-active::before, @{e-widget}.e-datepicker.e-headerlong .e-datepicker-days .e-active .e-state-hover::before,@{e-widget}.e-datepicker.e-headerlong table .e-datepicker-days td::before{
+    & when (@skin= "office-365") {
+        left:14px;
+    }
+     & when (@skin= "material") {
+         left:10px;
+     }
+}
+@{e-widget}.e-datepicker.e-headerlong table .e-datepicker-allyears td::before{
+    & when (@skin= "office-365") {
+        width:75px;
+    }
+     & when (@skin= "office-365") {
+         left:14px;
+     }
+}
+
+@{e-widget}.e-datepicker table .e-datepicker-months td::before, @{e-widget}.e-datepicker table .e-datepicker-years td::before {
+    & when (@skin= "office-365") {
+        /*material*/
+        width: 45px;
+        height: 45px;
+        left: 6px;
+        top: -2px;
+        padding-bottom: 0;
+        background-color: @neutral-lighter;
+    }
+}
+@{e-widget}.e-datepicker.e-headerlong table .e-datepicker-months td::before, @{e-widget}.e-datepicker.e-headerlong table .e-datepicker-years td::before {
+    & when (@skin= "office-365") {
+        left: 29px;
+    }
+}
+@{e-widget}.e-datepicker.e-headerlong e-datepicker-months .e-active::before, @{e-widget}.e-datepicker.e-headerlong e-datepicker-months .e-active .e-state-hover::before, @{e-widget}.e-datepicker.e-headerlong e-datepicker-months table td::before{
+     & when (@skin= "office-365") {
+        left: 29px;
+    }
+}
+
+@{e-widget}.e-datepicker.e-icons .e-datepicker-months td.e-state-hover::before, @{e-widget}.e-datepicker.e-icons .e-datepicker-years td.e-state-hover::before, @{e-widget}.e-datepicker.e-icons .e-datepicker-years td.e-state-default::before, @{e-widget}.e-datepicker.e-icons .e-datepicker-months td.e-state-default::before, @{e-widget}.e-datepicker.e-icons .e-datepicker-years td.e-current-year::before
+{
+    & when (@skin= "office-365")
+    {
+        left: 16px;
+    }
+}
+
+
+@{e-widget}.e-datepicker table .e-datepicker-months td.e-active::before, @{e-widget}.e-datepicker table .e-datepicker-years td.e-active::before,
+@{e-widget}.e-datepicker table .e-datepicker-months td.e-active.e-state-hover::before, @{e-widget}.e-datepicker table .e-datepicker-years td.e-active.e-state-hover::before {
+    & when (@skin= "office-365") {
+        background-color: @theme-primary;
+    }
+}
+
+@{e-widget}.e-datepicker table .e-datepicker-months td.e-active:hover::before, @{e-widget}.e-datepicker table .e-datepicker-years td.e-active:hover::before,
+@{e-widget}.e-datepicker table .e-datepicker-allyears td.e-active:hover::before {
+    & when (@skin= "office-365") {
+        background-color: @neutral-light;
+    }
+}
+
+@{e-widget}.e-datepicker table .e-datepicker-allyears td::before {
+    & when (@skin= "office-365") {
+        /*material*/
+        width: 50px;
+        height: 50px;
+        left: 3px;
+        top: 6px;
+        background-color: @neutral-lighter;
+    }
+}
+@{e-widget}.e-datepicker table .e-datepicker-allyears td.e-active::before{
+   & when (@skin= "office-365") {
+        background-color: @theme-primary;
+    } 
+}
+@{e-widget}.e-datepicker .e-active::before, @{e-widget}.e-datepicker .e-active .e-state-hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: @accent-color;
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        z-index: -1;
+    }
+
+    & when (@skin= "office-365") {
+        /*material*/
+        background: #0078d7;
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 5px;
+        z-index: -1;
+        height: 30px;
+        width: 30px;
+        color: white;
+        background: @theme-primary;
+    }
+}
+@{e-widget}.e-datepicker.e-headerlong table td.e-current-allyear::before{
+     & when (@skin= "material") {
+         left:14px;
+     }
+}
+@{e-widget}.e-datepicker.e-icons .e-active::before, @{e-widget}.e-datepicker.e-icons .e-active .e-state-hover::before,
+@{e-widget}.e-datepicker.e-icons td::before, @{e-widget}.e-datepicker.e-icons td.e-state-hover::before {
+    & when (@skin= "material") {
+        left: 2px;
+    }
+
+    & when (@skin= "office-365") {
+        left: 7px;
+    }
+}
+
+@{e-widget}.e-datepicker.e-icons .e-datepicker-allyears .e-active::before, @{e-widget}.e-datepicker.e-icons .e-active .e-datepicker-allyears .e-state-hover::before,
+@{e-widget}.e-datepicker.e-icons .e-datepicker-allyears td::before, @{e-widget}.e-datepicker.e-icons .e-datepicker-allyears td.e-state-hover::before,
+@{e-widget}.e-datepicker.e-icons .e-datepicker-allyears td.e-current-allyear::before {    
+    & when (@skin= "office-365") {
+        left: 13px;
+    }
+}
+
+@{e-widget}.e-datepicker.e-icons .e-datepicker-allyears td
+{
+    & when (@skin= "office-365") {
+        word-break: break-word;
+        white-space: pre;
+    }
+}
+
+@{e-widget}.e-datepicker td.e-state-hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        border-radius: 50%;
+    }
+    & when (@skin= "office-365") {
+        /*office-365*/
+       border:1px solid @theme-primary;
+    }
+}
+
+@{e-widget}.e-datepicker .e-active::before,@{e-widget}.e-datepicker .e-active.e-state-hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        background: @accent-color;
+        border-radius: 50%;
+    }
+
+    & when (@skin= "office-365") {
+        /*office-365*/
+        background-color: @theme-primary;
+    }
+}
+
+@{e-widget}.e-ntouch.e-datepicker table td.e-disable:hover::before,
+@{e-widget}.e-ntouch.e-datepicker table td.e-hidedate:hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        color: fade(@base-font-color,38%);
+    }
+    & when (@skin= "office-365") {
+        /*office-365*/
+        color: @neutral-light-font;
+        
+    }
+}
+@{e-widget}.e-datepicker table td.e-hidedate:hover::before{
+    & when (@skin= "material") {
+        /*material*/
+    background: none;
+    }
+    & when (@skin= "office-365") {
+        /*office-365*/
+    background: none;
+    }
+}
+@{e-widget}.e-datepicker .e-datepicker-months td.e-active::before,
+@{e-widget}.e-datepicker .e-datepicker-years td.e-active::before {
+    & when (@skin= "material") {
+        /*material*/
+        top: 5px;
+        left: 20px;
+    }
+}
+
+@{e-widget}.e-datepicker .e-datepicker-months td.e-state-hover::before,
+@{e-widget}.e-datepicker .e-datepicker-years td.e-state-hover::before {
+    & when (@skin= "material") {
+        /*material*/
+        top: 5px;
+        left: 20px;
+    }
+}
+@{e-widget}.e-datepicker.e-headerlong .e-datepicker-months td::before,
+@{e-widget}.e-datepicker.e-headerlong .e-datepicker-years td::before {
+    & when (@skin= "material") {
+        left:32px;
+    }
+}
+
+@{e-widget}.e-datewidget .e-input::selection, @{e-widget}.e-datewidget .e-input::selection,
+@{e-widget}.e-datewidget .e-input::selection, @{e-widget}.e-datewidget .e-input::selection {
+    & when (@skin= "material") {
+        background: @accent-color;
+        color: @accent-font-color;
+    }
+
+    & when (@skin= "office-365") {
+        background: @theme-primary;
+        color: @widget-bg-color;
+    }
+}
+
+@{e-widget}.e-datewidget .e-input::-moz-selection, @{e-widget}.e-datewidget .e-input::-moz-selection,
+@{e-widget}.e-datewidget .e-input::-moz-selection, @{e-widget}.e-datewidget .e-input::-moz-selection {
+    & when (@skin= "material") {
+        background: @accent-color;
+        color: @accent-font-color;
+    }
+
+    & when (@skin= "office-365") {
+        background: @theme-primary;
+        color: @widget-bg-color;
+    }
+}
+
+@{e-widget}.e-datepicker.e-popup .e-header .e-prev:not(:active):after, @{e-widget}.e-datepicker.e-popup .e-header .e-next:not(:active):after {
+    & when (@skin="material") {
+        background-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget}.e-datepicker.e-popup .e-header .e-prev.e-disable:not(:active):after, @{e-widget}.e-datepicker.e-popup .e-header .e-next.e-disable:not(:active):after {
+    & when (@skin="material") {
+        background-color: transparent;
+    }
+}
+
+@{e-widget}.e-datepicker .e-footer.e-btn.e-select.e-flat:not(:active):after {
+    & when (@skin= "material") {
+        background-color: fade(@accent-color,12%);
+    }
+}
+
+@{e-widget}.e-datepicker .e-datepicker-days td.e-active:not(:active):after {
+    & when (@skin= "material") {
+        background: fade(@accent-color,50%);
+    }
+}
+
+@{e-widget}.e-datepicker .e-datepicker-days td.e-active {
+    & when (@skin= "material") {
+        overflow: hidden;
+        border-radius: 50%;
+    }
+}
+@{e-widget}.e-datewidget.e-disable{
+     & when not (@skin= "material") and not (@skin="office-365"){
+    background-color: @disable-control-background-color;
+    border-color:@disable-control-border-color;
+    opacity:1;
+    }
+}
+
+@{e-widget}.e-datewidget .e-select.e-disable,
+@{e-widget}.e-datewidget.e-disable .e-select:hover,
+@{e-widget}.e-ntouch.e-datewidget .e-disable.e-select:hover{
+     & when not (@skin= "material") and not (@skin="office-365"){
+    background-color: @disable-icon-bg-color;
+    }
+}
+@{e-widget}.e-datepicker .e-footer:active{
+    & when (@skin= "office-365") {
+	        color: @neutral-light-font-alt;
+        }
+}
+@{e-widget}.e-datepicker .e-footer.e-btn.e-select:focus{
+     & when (@skin= "office-365") {
+         box-shadow:none;
+         border:1px solid @theme-primary;
+         }
+}
+@{e-widget}.e-datepicker.e-popup .e-dp-viewallyears .e-datepicker-allyears td.e-current-allyear.e-active::before,@{e-widget}.e-datepicker.e-popup .e-dp-viewallyears .e-datepicker-allyears td.e-current-allyear:hover::before,
+@{e-widget}.e-datepicker.e-popup .e-dp-viewallyears .e-datepicker-allyears td.e-current-allyear::before {
+    & when (@skin= "material") { 
+        /*material*/
+        content: "";
+        width: 75px;
+        height: 75px;
+        z-index: -1;
+    }
+}
