@@ -34,10 +34,10 @@ async function mergeRequest() {
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
         .commit(`Merge Request 12,45`)
-        .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git')
-        .push('origin', 'automate-mr');
+        .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git');
+        // .push('origin', 'automate-mr');
        
-   // await git().push(['-u', 'origin', branch], () => console.log('done'));
+    await git().push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
   //  shellJs.exec(`git push -b ${branch}`)
     //pull 
     await git().pull((err) => {
