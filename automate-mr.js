@@ -11,9 +11,9 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 gulp.task('merge-request', function (done) {
     if (fs.existsSync(prefixPath)) {
     //  Copy Script and Contents
-        suffixPath.forEach(path => {
-            copyFiles(`${prefixPath}\\${path.srcPath}`, `Build-Files\\${path.destPath}`);
-        })
+        // suffixPath.forEach(path => {
+        //     copyFiles(`${prefixPath}\\${path.srcPath}`, `Build-Files\\${path.destPath}`);
+        // })
     //  MR
         mergeRequest();
     }
