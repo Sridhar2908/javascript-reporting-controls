@@ -1,8 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs');
-const simpleGit = require('simple-git');
+var git = require('simple-git');
 var shellJs = require('shelljs')
-const git = simpleGit();
 var prefixPath = "C:\\Program Files (x86)\\Bold Reports\\Embedded Reporting\\Javascript\\assets";
 var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" },
 { srcPath: "scripts\\data-visualization\\**", destPath: "Scripts\\data-visualization" },
@@ -30,25 +29,26 @@ function copyFiles(src, dest) {
         .pipe(gulp.dest(dest));
 }
 async function mergeRequest() {
-    git.init()
+    git().init()
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit(`merge-request-js-report-control 9.48`)
-        .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
-
-     await  git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
-    // shellJs.exec('git push -u origin master');
+        .commit(`Merge Request 12,45`)
+        .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git')
+        .push('origin', 'automate-mr');
+       
+   // await git().push(['-u', 'origin', branch], () => console.log('done'));
+  //  shellJs.exec(`git push -b ${branch}`)
     //pull 
-    await git.pull((err) => {
+    await git().pull((err) => {
         if (err) {
             console.log(err);
         }
     });
-    //Merge 
-    git.merge((err) => {
+    // Merge 
+    git().merge((err) => {
         if (err.git) {
-            console.log(err.git);// the failed merge Summary
+            console.log(err.git);// The failed merge Summary
             process.exitCode(1);
         }
         console.log('Merged');
