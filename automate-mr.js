@@ -34,6 +34,7 @@ async function mergeRequest() {
         .add('./*')
         .commit(`Merge Request 3.10`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git');
+     
         await git().pull((err) => {
             if (err) {
                 console.log(err);
