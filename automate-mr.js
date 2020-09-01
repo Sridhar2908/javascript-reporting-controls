@@ -32,7 +32,7 @@ async function mergeRequest() {
         .addConfig('user.name', 'Sridhar2908')
         .addConfig('user.email', 'sridhar.manikandan@syncfusion.com')
         .add('./*')
-        .commit(`Merge Request 12,45`)
+        .commit(`Merge Request 3.10`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls.git');
     //.push('origin', 'automate-mr');
 
