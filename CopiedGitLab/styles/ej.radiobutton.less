@@ -1,0 +1,314 @@
+@import "definition.less";
+/*Theme Color*/
+@{e-widget}.e-radiobtn-wrap > span {
+    .high-contrast-radio-iconcircle;
+    .high-contrast-radio-bordercolor;
+    background-image: none;   
+    & when (@skin= "material") {
+        /*material*/
+        .material-radio-bordercolor;
+	 border-color:fade(@base-font-color,54%);
+    background-color: @content-bg-color;
+    }
+    & when (@skin= "office-365") {
+         background-color: @neutral-white;
+         border:2px solid @neutral-tertiary;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+        /*other*/       
+    background-color: @content-bg-color;
+     border-color: @content-border-color;
+    }
+}
+@{e-widget}.e-radiobtnwrap.e-disable > span , 
+@{e-widget}.e-radiobtn-wrap.e-disable > span.e-rad-active , 
+@{e-widget}.e-radiobtn-wrap.e-disable > span.e-rad-active:hover,
+@{e-widget}.e-radiobtn-wrap.e-disable .e-circle_01,
+@{e-widget}.e-radiobtn-wrap.e-disable > span:hover{
+& when (@skin= "material") {
+	   		border-color:fade(@base-font-color,26%);
+	}
+}
+@{e-widget}.e-radiobtn-wrap > span.e-rad-active,@{e-widget}.e-radiobtn-wrap > span.e-rad-active:hover {
+    .high-contrast-radio-iconcircle;
+    .high-contrast-radio-bordercolor;
+    border-color: @content-border-color;
+	& when (@skin= "material") {        
+    .material-radio-act-bordercolor;
+		border-color: @accent-color;
+	}
+    
+}
+@{e-widget}.e-radiobtn-wrap > span.e-rad-active{
+    & when (@skin= "office-365") {        
+         border:2px solid @theme-primary;
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable > span.e-rad-active{
+    & when (@skin= "office-365") {        
+         border:2px solid @neutral-tertiary-alt;
+    }
+}
+@{e-widget}.e-radiobtn-wrap > span.e-rad-active:hover{
+     & when (@skin= "office-365") {        
+         border:2px solid @theme-dark-alt;
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable > span.e-rad-active:hover{
+     & when (@skin= "office-365") {        
+         border:2px solid @neutral-tertiary-alt;
+    }
+}
+@{e-widget}.e-radiobtn-wrap > span:hover{
+    .high-contrast-radio-iconcircle;
+    .high-contrast-radio-bordercolor;     
+     & when (@skin= "material") {
+        /*material*/
+      .material-radio-bordercolor;
+    }
+    & when (@skin= "office-365") {        
+         border:2px solid @neutral-secondary-alt;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+        /*other*/       
+     border-color: @content-border-color;
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable > span:hover{
+    & when (@skin= "office-365") {        
+         border:2px solid @neutral-tertiary-alt;
+    }
+}
+
+@{e-widget}.e-radiobtn-wrap.e-focus > span 
+{
+	box-shadow: 0 0 2px @shadow-bg-color;
+}
+@{e-widget}.e-radiobtn-wrap .e-spanicon{
+    box-sizing:content-box;
+}
+@{e-widget}.e-radiobtn-wrap .e-rad-select 
+{
+    background: none repeat scroll 0 0 transparent;
+}
+@{e-widget}.e-radiobtn-wrap .e-circle_01 {
+    .high-contrast-radio-iconcircle;
+    .office-radio-iconcircle;
+    color: @active-bg-stcolor;
+    .material-radio-iconcircle;
+    border-color: @content-border-color;
+	& when (@skin= "material") {
+		border-color: @accent-color;
+		color:@accent-color;
+	}
+     & when (@skin= "office-365") {        
+        color:@theme-primary;
+    }
+}
+@{e-widget}.e-radiobtn-wrap .e-circle_01:hover{
+    & when (@skin= "office-365") {        
+        color:@theme-dark-alt;
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable .e-circle_01, @{e-widget}.e-radiobtn-wrap.e-disable .e-text {
+& when (@skin= "material") {
+		color:fade(@base-font-color,26%);
+	}
+ & when (@skin= "office-365") {        
+        color:@neutral-tertiary-alt;
+    }
+}
+@{e-widget}.e-radiobtn-wrap .e-text
+{
+    font-family:@font-family;
+    font-size:@font-size;
+	& when (@skin= "material") {
+	    font-size:13px;
+	}
+    color:@content-font-color;
+	
+}
+
+@{e-widget}.e-radiobtn-wrap.e-material-animate .e-radmedium span.e-rad-icon.e-icon.e-circle_01 {
+	& when (@skin= "material") {
+		}
+}
+
+@{e-widget}.e-radiobtn-wrap span.e-rad-icon.e-icon.e-rad-select:before {
+	& when (@skin= "material") {
+    content: "\e686";
+    font-size: 0px;
+	color:@accent-color;
+	}
+}
+
+& when (@skin= "material") {
+@keyframes rippleEffect {
+	0% {
+		opacity: 1;
+		box-shadow: 0 0 0 0px @accent-color;
+		}
+
+	100% {
+		box-shadow: 0 0 0 15px @content-bg-color;
+		opacity: 0;
+		}
+	}
+}
+& when (@skin= "material") {
+
+@keyframes back_rippleEffect {
+
+	0% {
+		box-shadow: 0 0 0 15px @content-bg-color;
+		opacity: 1;
+		}
+
+	100% {
+		opacity: 0;
+		box-shadow: 0 0 0 0px @accent-color;
+		}
+	}
+}
+
+@{e-widget}.e-radiobtn-wrap span.e-spanicon.e-rad-active {
+
+	& when (@skin= "material") {
+	border-radius: 100%;
+	z-index: 1;
+	}
+}
+
+@{e-widget}.e-radiobtn-wrap.e-material-animate span.e-spanicon:after {
+	& when (@skin= "material") {
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	content: '';
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box
+	}
+}
+
+
+
+@{e-widget}.e-radiobtn-wrap.e-material-animate span.e-spanicon:after {
+	& when (@skin= "material") {
+
+	top: 0;
+	left: 0;
+	padding: 0;
+	z-index: -1;
+	opacity: 0
+
+	}
+	}
+
+
+@{e-widget}.e-radiobtn-wrap.e-material-animate span.e-spanicon.e-rad-active:after {
+	& when (@skin= "material") {
+	animation: rippleEffect 0.30s linear 0ms;
+	}
+}
+@{e-widget}.e-radiobtn-wrap.e-material-animate span.e-spanicon:after {
+	& when (@skin= "material") {
+	animation: back_rippleEffect 0.30s linear 0ms;
+	}
+}
+
+@{e-widget}.e-radiobtn-wrap.e-disable .e-circle_01,
+@{e-widget}.e-radiobtn-wrap.e-disable span.e-rad-select{  
+     & when not (@skin= "material") and not (@skin="office-365"){ 
+     color:@disable-icon-bg-color;
+     }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable>span{
+     & when not (@skin= "material") and not (@skin="office-365"){
+     background-color: @disable-control-background-color;
+    border-color:@disable-control-border-color;
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable{
+     & when not (@skin= "material") and not (@skin="office-365"){
+    opacity:1;
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-disable.e-focus > span{
+     & when not (@skin= "material") and not (@skin="office-365"){
+    box-shadow:none;
+    }
+}
+
+@{e-widget}.e-radiobtn-wrap .e-spanicon.e-radsmaller .e-icon.e-rad-icon, @{e-widget}.e-radiobtn-wrap .e-radmedium .e-rad-icon {
+    text-indent:0px;
+}
+
+@{e-widget}.e-radiobtn-wrap.e-ie8 .e-spanicon.e-radsmaller .e-icon.e-rad-icon {
+    /* IE8 */
+    text-indent: 2px;
+    line-height: 12px;
+    padding: 0.5px; 
+    font-size: 8px;
+    & when (@skin ="material") { 
+        /* IE 8 */
+        font-size: 10px;  
+        text-indent: 2.5px; 
+        line-height: 15px;   
+    }
+    & when (@skin="office-365"){
+        /* IE 8 */
+         font-size: 10px;
+         text-indent: 2.5px; 
+         line-height: 15px; 
+    }
+}
+@{e-widget}.e-radiobtn-wrap.e-ie8 .e-radmedium .e-rad-icon {
+    /* IE 8 */
+    font-size: 9px;
+    text-indent: 3px; 
+    line-height: 15px;
+    & when (@skin ="material") { 
+        /* IE 8 */
+        font-size: 12px;
+        text-indent: 2px; 
+        line-height: 18px;
+    }
+    & when (@skin="office-365"){
+        /* IE 8 */
+         font-size: 12px;
+         text-indent: 2px; 
+         line-height: 18px;
+    }
+}
+
+@{e-widget}.e-radiobtn-wrap.e-rtl .e-spanicon.e-radsmaller .e-icon.e-rad-icon {
+    & when not (@skin= "material") and not (@skin="office-365"){
+	    width: 0.85em;
+    } 
+	& when (@skin= "material") {
+        width: 0.98em;
+    }
+	& when (@skin= "office-365") {
+        width: 0.98em;
+    }  
+}
+
+@{e-widget}.e-radiobtn-wrap.e-rtl > span.e-radmedium > span.e-rad-icon {
+	& when (@skin= "material") {
+        width: 1.25em;
+    }
+	& when (@skin= "office-365") {
+        width: 1.25em;
+    }
+    & when not (@skin= "material") and not (@skin="office-365"){
+	    width: 1.05em;
+    }
+}
+
+@{e-widget}.e-ie8.e-radiobtn-wrap .e-radmedium.e-spanicon .e-rad-icon.e-icon,
+@{e-widget}.e-ie8.e-radiobtn-wrap .e-radsmaller.e-spanicon .e-rad-icon.e-icon {
+	width: 1.6em;
+}

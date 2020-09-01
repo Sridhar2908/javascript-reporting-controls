@@ -1,0 +1,158 @@
+/*Definition*/
+@skin:"bootstrap";
+@font-family: sans-serif,Segoe UI,Helvetica Neue,Ubuntu,Arial;
+@font-size: 14px;
+@font-path: "common-images";
+@font-icon-path: "common-images";
+@border-size: 1px;
+@border-type: solid;
+@header-font-weight: bold;
+@header-font-size: 16px;
+@content-font-weight: normal;
+@datepicker-image-top:5px;
+@gheader-font-size: 14px;
+@gantt-content-font-size: 12px;
+@gantt-header-font-family: @font-family;
+@gantt-header-font-size: 14px;
+@gantt-parentGanttRecord-font-weight: bold;
+@gantt-schedule-font-weight: 600;
+@gantt-schedule-font-size: 13px;
+@gantt-tooltip-font-size: 12px;
+@gantt-tasklable-font-family: @font-family;
+@gantt-tasklable-font-size: 12px;
+@gantt-tasklable-font-style: normal;
+@treegrid-headercell-height:45px;
+@treegrid-header-padding:0px;
+@input-height: 34px;
+@input-width: 143px;
+@visual-mode-padding: 2px 19px 5px 4px;
+@visual-mode-rtl-padding: 2px 4px 5px 19px;
+@progressbar-height: 20px;
+@toolbar-padding: 4px;
+@toolbar-margin-right: 1px;
+@toolbar-res-margin-top: 5px;
+@menu-horizontal-line-height: 38px;
+@menu-vertical-line-height: 38px;
+@menu-hor-child-line-height: 24px;
+@menu-ver-child-line-height: 24px;
+@slider-size: 20px;
+@slider-border-radius: 12px;
+@slider-handle-size: 22px;
+@slider-bs-border-radius: 12px;
+@treeview-text-padding: .308em .6667em .4167em .5833em;
+@treeview-edit-text-padding: 0 0 0 .5833em;
+@treeview-rtl-edit-text-padding: 0 .5833em 0 0;
+@treeview-ul-padding: 2px 0px 0px 10px;
+@treeview-icon-margin: 10px;
+@treeview-rtl-item-padding: 0px 16px 2px 0px;
+@treeview-rtl-ul-padding: 2px 10px 0px 0px;
+@treeview-ul-margin-bottom: -2px;
+@treeview-chk-margin-top: 4px;
+@treeview-fullrow-height: 31px;
+@rte-ul-margin-buttom: 5px;
+@rte-ul-margin-top: 6px;
+@rte-split-height: 34px;
+@rte-toolbar-res-margin-top: 12px;
+@fe-treeview-image-top: 5px;
+@button-height: 34px;
+@border-radius: 4px;
+@border-left-radius: @border-radius 0 0 @border-radius;
+@border-right-radius: 0 @border-radius @border-radius 0;
+@border-top-radius: @border-radius @border-radius 0 0;
+@border-bottom-radius: 0 0 @border-radius @border-radius;
+@inner-border-radius: @border-radius - 1;
+@inner-border-left-radius: @inner-border-radius 0 0 @inner-border-radius;
+@inner-border-right-radius: 0 @inner-border-radius @inner-border-radius 0;
+@inner-border-top-radius: @inner-border-radius @inner-border-radius 0 0;
+@box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px inset;
+@button-box-shadow: none;
+@schedule-commonviewbutton: 7px 10px 7px 10px;
+@schedule-input-height: 30px;
+@schedule-viewstable-margin-top: -8px;
+@schedule-agendaday-line-height: 42px;
+@schedule-box-shadow: @box-shadow;
+@schedule-commonviewbutton-box-shadow: @box-shadow;
+@ribbon-line-height: 33px;
+@ribbon-resizebtn-height: auto;
+@tools-border-radius: 3px;
+@ss_box-sizing: border-box;
+@ss-button-height: 34px;
+@ss-formula-border: none;
+@ss-formula-wrapper-height: 26px;
+@ss-button-bottom-margin: 4px;
+@ss-button-left-margin: 11px;
+@ss-pagercontainer-height: 28px;
+@ss-pagercontainer-overflow: visible;
+@ss-pager-height: 30px;
+@ss-margin-bottom: 4px;
+@ss-margin-top: 7px;
+@ss-addnew-padding-top: 1px;
+@ss-icon-margin:9px 3px 0px 7px;
+@header-border-size: 1px;
+@grid-box-shadow:none;
+
+@input-border-width:@border-size;
+
+.e-ribbon.e-js .e-header .e-active a, .e-ribbon .e-header > .e-apptab .e-apptabanchor,
+.e-ribbon .e-expandcollapse span, .e-ribbon .e-header .e-contextual, .e-ribbon .e-menu li.e-list.e-active.e-mfocused {
+    border-radius: @border-radius;
+}
+.e-ribbon .e-menu.e-horizontal > .e-list > a, .e-menu.e-horizontal > .e-list > span {
+    line-height: @ribbon-line-height;
+}
+.e-ribbon .e-groupdiv .e-resizebtn {
+    height: @ribbon-resizebtn-height;
+}
+
+.e-datepicker .e-header .e-next, .e-datepicker .e-header .e-prev {
+    top: @datepicker-image-top;
+}
+
+.e-ss-dialog .e-widget .e-addedrow .e-dlg-btnfields .e-btn-normal , 
+.e-ss-dialog .e-widget .e-widget-content .e-dlg-btnfields input.e-btn.e-widget,
+.e-ss-dialog .e-widget .e-widget-content .e-dlg-btnfields button.e-btn.e-widget,
+.e-ss-dialog .e-widget .e-widget-content .e-dlg-btnfields .e-dlg-btnctnr input.e-btn.e-widget{
+    box-sizing: @ss_box-sizing;
+    height: @ss-button-height;
+    margin-left: @ss-button-left-margin;
+    margin-bottom: @ss-button-bottom-margin;
+}
+
+.e-spreadsheet .e-widget .e-content .e-groupdiv .e-ribGroupContent .e-innerdivrow .e-innerdivchild .e-ss-colorpicker,
+.e-spreadsheet .e-ss-colorpicker.e-colorwidget,.e-spreadsheet .e-formulabar .e-indexbox,.e-ss-textarea, .ejinputtext{
+    border-radius: @border-radius;
+}
+
+.e-spreadsheet .e-formulabar .e-inputbox{
+    border: @ss-formula-border;
+}
+
+.e-spreadsheet .e-formulabar .e-inputbox .e-ss-autocomplete .e-in-wrap{
+    height: @ss-formula-wrapper-height;
+}
+
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter{
+    height: @ss-pager-height;
+}
+
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-table .e-pager:first-child .e-pagercontainer {
+    overflow: @ss-pagercontainer-overflow;
+    height: @ss-pagercontainer-height;
+}
+
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-pager:first-child .e-pagercontainer .e-numericcontainer .e-numericitem {
+    padding-bottom: @ss-margin-bottom;
+    padding-top: @ss-margin-top;
+}
+
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-table .e-pager:first-child .e-pagercontainer .e-new{
+    padding-top: @ss-addnew-padding-top;
+}
+
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-pager:first-child .e-pagercontainer .e-firstpage,
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-pager:first-child .e-pagercontainer .e-prevpage, 
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-pager:first-child .e-pagercontainer .e-nextpage,
+.e-spreadsheet .e-spreadsheetgrppanel .e-spreadsheetmainpanel .e-spreadsheetfooter .e-pager:first-child .e-pagercontainer .e-prevpage{
+    padding: @ss-icon-margin;
+}
+
