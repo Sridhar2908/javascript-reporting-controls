@@ -11,18 +11,18 @@ var suffixPath = [{ srcPath: "scripts\\common\\**", destPath: "Scripts\\common" 
 
 gulp.task('merge-request', function (done) {
 
-    // if (fs.existsSync(prefixPath)) {
-    //     //Copy Script and Contents
-    //     suffixPath.forEach(path => {
-    //         copyFiles(`${prefixPath}\\${path.srcPath}`, `Build-Files\\${path.destPath}`);
-    //     })
+    if (fs.existsSync(prefixPath)) {
+        //Copy Script and Contents
+        suffixPath.forEach(path => {
+            copyFiles(`${prefixPath}\\${path.srcPath}`, `Build-Files\\${path.destPath}`);
+        })
         //MR
         mergeRequest();
-    // }
-    // else {
-    //     console.log("Check the build is installed correct path which is under C : ");
-    //     process.exitCode(1);
-    // }
+    }
+    else {
+        console.log("Check the build is installed correct path which is under C : ");
+        process.exitCode(1);
+    }
     done();
 });
 function copyFiles(src, dest) {
@@ -37,8 +37,8 @@ async function mergeRequest() {
         .commit(`merge-request-js-report-control 9.48`)
         .addRemote('origin', 'https://github.com/Sridhar2908/javascript-reporting-controls');
 
-   await git.push(['-u', 'origin', 'master'], () => console.log('done'));
-     //shellJs.exec('git push -u origin master');
+     await  git.push(['-u', 'origin', 'automate-mr'], () => console.log('done'));
+    // shellJs.exec('git push -u origin master');
     //pull 
     await git.pull((err) => {
         if (err) {
