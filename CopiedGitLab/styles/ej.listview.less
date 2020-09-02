@@ -1,0 +1,314 @@
+@import "definition.less";
+/*Theme Color*/
+
+@{e-js}.e-lv .e-list-text
+{
+     & when (@skin= "material") {
+         font-size: 15px;
+         font-family: @font-family;
+     }
+     & when (@skin= "office-365") {
+         font-size:13px;
+         font-family:@font-family;
+         color:@neutral-light-font;
+         font-weight:400;
+     }
+     & when not (@skin= "material") and not (@skin="office-365") {
+	     font-size:@font-size;
+         font-family: @font-family;
+     }
+}
+
+/*List Item*/
+
+@{e-js}.e-lv .e-list {
+    & when (@skin= "material") {
+        border-bottom: none;
+        padding:0px 16px;
+        height:48px;
+        font-size:@font-size;
+    }
+    & when (@skin= "office-365") {
+        border-bottom: none;
+        padding:0px 12px;
+        height:36px;
+        font-size:13px;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+        border-bottom: @border-size @border-type @content-border-color;
+        font-size:@font-size;
+    }
+   
+}
+@{e-js}.e-lv .e-list .e-chevron-right_01.e-fontimage:before{
+     & when (@skin= "material") {
+         color:fade(@base-font-color,54%);
+     }
+     & when (@skin= "office-365") {
+         color:@neutral-light-font;
+     }
+     & when not (@skin= "material") and not (@skin="office-365") {
+         color:@default-icon-color;
+     }
+}
+
+@{e-js}.e-lv .e-list.e-state-default {
+    background-color: @content-bg-color;
+    border-color:@content-border-color;
+}
+@{e-js}.e-lv .e-list.e-state-default > .e-chevron-right_01 .e-list-text{
+     & when (@skin= "material") {
+         color:fade(@base-font-color,87%);
+         font-weight:400;
+     }
+     & when (@skin= "office-365") {
+         color:@neutral-light-font;
+         font-weight:400;
+     }
+     & when not (@skin= "material") and not (@skin="office-365") {
+        color:@content-font-color;
+     }
+}
+@{e-js}.e-lv .e-list.e-state-default:hover {
+     & when (@skin= "material") {
+        .hover-gradient-material();
+        color:@hover-font-color;
+     }
+     & when (@skin= "office-365") {
+         background:@neutral-lighter;
+         color:@neutral-light-font;
+     }
+     & when not (@skin= "material") and not (@skin="office-365") {
+        .hover-gradient();
+        color:@hover-font-color;
+     }
+}
+@{e-js}.e-lv .e-list.e-state-default:hover > .e-chevron-right_01 .e-list-text{
+    color:@hover-font-color;
+}
+@{e-js}.e-lv .e-list:hover > .e-chevron-right_01.e-fontimage:before{
+    color:@hover-icon-color;
+}
+@{e-js}.e-lv .e-list .e-chevron-right_01:hover{
+    color:@hover-font-color;
+}
+@{e-js}.e-lv .e-list.e-state-active {
+    & when (@skin= "material") {
+        .active-splitter-gradient();
+    }
+    & when (@skin= "office-365") {
+         background: @theme-lighter;
+         color:@neutral-light-font;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+        .active-gradient();
+        color:@active-font-color;
+    }
+}
+@{e-js}.e-lv .e-list.e-state-active .e-chevron-right_01 .e-list-text{
+    & when (@skin= "material") {
+         color:fade(@base-font-color,87%);
+    }
+    & when (@skin= "office-365") {
+        color:@neutral-light-font;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+         color:@active-font-color;
+    }
+}
+@{e-js}.e-lv .e-list.e-state-active > .e-chevron-right_01.e-fontimage:before{
+    & when (@skin= "material") {
+         color:fade(@base-font-color,87%)
+    }
+    & when (@skin= "office-365") {
+        color:@neutral-light-font;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+        color:@active-icon-color;
+    }
+}
+/*Search Box*/
+@{e-js}.e-lv-inputdiv .e-lv-input {
+    border: @border-size @border-type @content-border-color;
+    border-radius: 7px;
+    font-size: @content-font-size;   
+}
+
+@{e-js}.e-lv .e-header {
+    & when (@skin= "material") {
+         .header-listview-gradient();
+          color:fade(@base-font-color,87%);
+          padding-left:16px;
+          border-bottom:@border-size @border-type @content-border-color;
+          height:64px;
+          font-family:@font-family;
+    }
+    & when (@skin= "office-365") {
+        color:@neutral-secondary;
+        border-top: 1px solid #eaeaea;
+        border-left: 1px solid #eaeaea;
+        border-right: 1px solid #eaeaea;
+        padding-left:12px;
+        height:36px;
+        font-size:14px;
+        font-family:@font-family;
+        font-weight:400;
+    }
+    & when not (@skin= "material") and not (@skin="office-365") {
+        .header-gradient();
+        color:@header-font-color;
+        border:@border-size @border-type @header-border-color;
+        border-bottom: @tools-border-radius @border-type @active-bg-stcolor;
+    }
+    .office-dialog-active-line-color;   
+}
+@{e-js}.e-lv.e-parentlv > .e-lv .e-list-container{
+     & when (@skin= "material") {
+         border: none;
+     }
+     & when (@skin= "office-365") {
+         border:1px solid #eaeaea;
+     }
+     & when not (@skin= "material") and not (@skin="office-365") {
+         border-left: @border-size @border-type @content-border-color;
+         border-right: @border-size @border-type @content-border-color;
+         border-top: @border-size @border-type @content-border-color;     
+     }
+}
+@{e-js}.e-lv.e-parentlv > .e-lv.subpage{
+    border:none;
+}
+@{e-js}.e-nb .e-lv .subpage .e-content{
+            float:none;
+        }
+@{e-js}.e-lv > .e-header:hover > .e-icon:before {
+      & when not (@skin= "material") {
+       color: @hover-icon-color;
+      }
+}
+@{e-js}.e-lv > .e-header >.e-icon:before, @{e-js}.e-lv > .e-header > .e-icon:hover:before {
+      & when (@skin= "material") {
+          color:fade(@base-font-color, 54%);
+      }
+      & when not (@skin= "material") {
+          color:@header-icon-color;
+      }
+}
+@{e-js}.e-lv .e-list .e-lv-checkdiv.e-template-checkmark, @{e-js}.e-lv .e-template-list .e-list-check div { 
+    float:none;
+    vertical-align: middle;
+    display: table-cell;
+}
+@{e-js}.e-lv .e-template-list .e-list-check div{
+    vertical-align: initial;
+}
+@{e-js}.e-lv  .e-template-list .e-list-check {
+    display:table;
+}
+
+@{e-js}.e-lv .e-htitle, @{e-js}.e-lv .e-btn-text {
+    & when (@skin= "material") {
+       font-size:20px;
+       height:40px;
+    }
+    & when (@skin= "office-365") {
+        height:18px;
+        padding:7px 7px 7px 0px;
+    }
+}
+@{e-js} .e-htitle, @{e-js} .e-btn-text {
+    & when (@skin= "material") {
+       font-weight:500;
+    }
+    & when (@skin= "office-365") {
+        font-weight:400;
+    }
+}
+ @{e-js}.e-lv .e-btn-text {
+     & when (@skin= "material") {
+        padding-left:12px;
+     }
+ }
+ @{e-js}.e-icon.e-chevron-left_01:before {
+    & when (@skin= "material") {
+       content: "\e74d";
+       font-size:18px;
+    }
+ }
+ @{e-js}.e-list-container .e-chkbox-wrap .e-chk-image.e-stop,@{e-js}.e-list-container .e-chkbox-wrap .e-chk-image.e-checkmark {
+      & when (@skin= "material") {
+          background-color:@accent-color;
+      }
+}
+ @{e-js}.e-list-container .e-chkbox-wrap div>span.e-chk-act,@{e-js}.e-list-container .e-chkbox-wrap div>span.e-chk-indeter {
+     & when (@skin= "material") {
+         border-color:@accent-color;
+     }
+ }
+ @{e-js}.e-lv .e-list.e-state-default.e-arrow, @{e-js}.e-lv .e-list .e-chevron-right_01 {
+    & when (@skin= "material") {
+        line-height:1.5;
+    }
+}
+@{e-js}.e-lv .e-list-container .e-chkbox-wrap {
+    & when (@skin= "material") {
+        margin-top:3px;
+    }
+    & when (@skin= "office-365") {
+        margin-top:3px;
+    }
+}
+@{e-js}.e-lv .e-list-container .e-icon.e-chevron-right_01:before {
+    & when (@skin= "office-365") {
+        content: "\e69b";
+    }
+}
+@{e-js}.e-lv .e-list .e-chevron-right_01 {
+    & when (@skin= "office-365") {
+         padding: 0;
+         height: 36px;
+         line-height: 34px;
+    }
+}
+@{e-js}.e-lv .e-icon.e-chevron-left_01:before {
+    & when (@skin= "office-365") {
+        content: "\e68b";
+    }
+}
+@{e-js}.e-lv .e-arrow .e-chevron-right_01:before, @{e-js}.e-lv .e-icon.e-chevron-left_01:before {
+   & when (@skin= "office-365") {
+        font-size:12px;
+        padding-top: 1px;
+   }
+}
+@{e-js}.e-lv .e-list .e-lv-checkdiv {
+   & when (@skin= "office-365") {
+       padding-left:12px;
+   }
+}
+@{e-js}.e-lv.e-slideleft .e-header {
+    & when (@skin= "office-365") {
+        padding-left: 0;
+    }
+}
+@{e-js}.e-lv.e-slideleft .e-header .e-chevron-left_01 {
+    & when (@skin= "office-365") {
+        width:36px;
+        height:36px;
+    }
+}
+@{e-js}.e-lv .e-icon.e-chevron-left_01:before {
+    & when (@skin= "office-365") {
+        padding-left: 4px;
+    }
+} 
+@{e-js}.e-list-container .e-load	{
+    background-image: @ajaxloaderimage;
+	background-position: center;
+    background-repeat: no-repeat;
+}
+@{e-js}.e-lv .e-list-container .e-chkbox-wrap .e-chkbox-small > span{
+    & when not (@skin= "material") and not (@skin= "office-365") {
+        top: 2px;
+    }
+}

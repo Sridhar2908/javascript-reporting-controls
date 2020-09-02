@@ -1,0 +1,453 @@
+@import "definition.less";
+
+/*------------------------------------- dropdownlist -------------------------------------------*/
+@{e-widget}.e-ddl .e-options {
+	& when (@skin= "office-365") {
+		background-color: @neutral-lighter;
+	}
+}
+@{e-widget} .e-atc .e-in-wrap, @{e-widget} .e-atc .e-input, @{e-widget}.e-atc-popup, @{e-widget} .e-atc .e-options {
+    background-color: @content-bg-color;
+    border-color: @content-border-color;
+      & when (@skin= "material") {
+        color: fade(@base-font-color, 87%);
+        font-size: 13px;
+        font-weight: @content-font-weight;
+	  }
+      & when (@skin= "office-365") {
+        color:@neutral-primary;
+        font-weight:400;
+        font-size: @content-font-size;
+      }
+      & when not (@skin= "material") and not (@skin="office-365") {
+        color: @content-font-color;
+        font-size: @content-font-size;
+        font-weight: @content-font-weight;
+	  }
+    font-family: @font-family;
+}
+@{e-widget}.e-ddl .e-input,@{e-widget}.e-ddl .e-input[readonly],
+@{e-widget}.e-ddl-popup,@{e-widget}.e-ddl .e-options { 
+     & when (@skin= "material") {
+        /*material*/ 
+        color: fade(@base-font-color,87%);
+		background-color: @content-bg-color;
+    } 
+    & when not (@skin= "material") {
+        /*other*/
+        & when (@skin= "office-365") {
+			color: @neutral-primary; 
+			background-color: @content-bg-color;
+        }
+		& when not (@skin= "office-365") {
+			color: @content-font-color;
+			background-color: @content-bg-color;
+		}
+    } 
+	font-family: @font-family;
+    font-size: @content-font-size;
+    font-weight: @content-font-weight;
+    cursor: default;
+}
+@{e-widget}.e-atc-popup ul li.e-category{
+	& when (@skin= "office-365") {
+		color: @theme-light-font;
+	}
+}
+@{e-widget}.e-ddl .e-in-wrap,
+@{e-widget}.e-ddl-popup,.e-ddl .e-options,
+@{e-widget}.e-ddl-popup .e-atc.e-search{ 
+    & when (@skin= "material") {
+        /*material*/
+        border-color: fade(@base-font-color,12%);
+        border-width: 0 0 1px 0;   
+    }
+
+    & when not (@skin= "material") {
+        /*other*/
+		& when (@skin= "office-365") {
+			border-color: @neutral-tertiary-alt;
+		}
+		& when not (@skin= "office-365") {
+			border-color: @content-border-color;
+		}
+    } 
+}
+@{e-widget}.e-ddl .e-options.e-active {
+    & when (@skin= "material") {
+        /*material*/
+    background-color: @primary-font-color;
+    color: @accent-color;
+    border-color: @primary-font-color;
+    }
+
+    & when not (@skin= "material") {
+        /*other*/
+    background-color: @active-bg-stcolor;
+    color: @active-font-color;
+    border-color: @active-bg-stcolor;
+    }
+}
+@{e-widget}.e-ddl .e-options:hover {
+    & when (@skin= "office-365") {
+     background :@hover-bg-stcolor;
+    }
+}
+@{e-widget}.e-ddl .e-options .e-icon.e-close {
+	& when (@skin= "office-365") {
+		color :@neutral-secondary-alt;
+    }
+}
+@{e-widget}.e-ddl-popup div>ul li{
+	& when (@skin= "office-365") {
+		background-color: @content-bg-color;
+    }
+}
+@{e-widget}.e-ddl-popup .e-active.e-hover{
+    & when (@skin= "office-365") {
+		background: @theme-lighter;
+    }
+}
+@{e-widget}.e-ddl .e-boxes {
+    background-color:@content-bg-color;
+}
+@{e-widget}.e-ddl.e-popactive .e-in-wrap:before, @{e-widget}.e-ddl.e-popactive .e-in-wrap:after {
+    & when (@skin= "material") {
+        background: @accent-color;
+    }
+}
+@{e-widget}.e-ddl.e-focus .e-in-wrap
+{
+     & when (@skin= "material") {
+        /*material*/
+        box-shadow: none;
+    }
+
+    & when not (@skin= "material") {
+        /*other*/
+       box-shadow: 0 0 @shadow-bg-size @bs-shadow-bg-color;
+       .material-normal-box-shadow;
+       .focus-border-color();
+    } 
+}
+
+@{e-widget}.e-ddl:hover .e-in-wrap { 
+     & when (@skin= "office-365") {
+        /*office-365*/
+		border-color: @neutral-secondary-alt;
+    }
+    & when not (@skin= "office-365") {
+        /*office-365*/
+		.focus-border-color();
+    }
+}
+@{e-widget}.e-ddl .e-input.e-watermark {
+    color: @watermark-font-color !important;
+    font-style: @watermark-font-style;
+}
+@{e-widget}.e-ddl-popup .e-hover {
+   & when (@skin= "material") {
+        /*material*/
+       background: @grey-200;
+       color:  fade(@base-font-color,87%);  
+    }
+
+    & when not (@skin= "material") {
+        /*other*/
+        & when (@skin= "office-365") {
+			/*office-365*/
+			background: @neutral-lighter;
+			color: @theme-light-font;
+		}
+		& when not (@skin= "office-365") {
+			.hover-gradient();
+			color: @hover-font-color;
+		}
+    }  
+}
+@{e-widget}.e-ddl .e-select:hover,@{e-widget}.e-ddl.e-rtl .e-select:hover {
+
+	& when (@skin= "material") {
+		/*material*/
+		background-color: @content-bg-color;
+		color: fade(@base-font-color,87%);  
+	}
+    & when not (@skin= "material") {
+		/*other*/
+		& when (@skin= "office-365") {
+			/*office-365*/
+			width: 30px;
+			height: 100%;
+			background: @hover-bg-endcolor;
+			color: @neutral-light-font-alt;
+		}
+		& when not (@skin= "office-365") {
+			.hover-gradient();
+			color: @hover-icon-color;
+			border-color: @content-border-color;
+		}
+    }
+	
+}
+@{e-widget}.e-ddl .e-select:active,@{e-widget}.e-ddl.e-rtl .e-select:active {
+     & when (@skin= "office-365") {
+        /*office-365*/
+        width: 30px;
+        height: 100%;
+        background: @active-bg-stcolor;
+        color: @widget-bg-color;
+     }
+}
+
+@{e-widget}.e-ddl .e-select.e-disable{
+	& when (@skin= "office-365") {
+		/*office-365*/
+		background: @default-bg-stcolor;
+		border: 0px solid @default-bg-stcolor;
+		color: @hmp-border-color;
+	}
+}
+@{e-widget}.e-ddl .e-input.e-disable{
+	& when (@skin= "office-365") {
+		/*office-365*/
+		background: @default-bg-stcolor;
+	}
+}
+
+@{e-widget}.e-ddl-popup .e-active {
+	& when (@skin= "material") {
+		/*material*/
+		background-color: @content-bg-color;
+		color: @accent-color; 
+	}
+	& when not (@skin= "material")  {
+	/*other*/ 
+		& when (@skin= "office-365") {
+			/*office-365*/ 
+			background-color: @theme-lighter;
+			color: @theme-light-font;
+		}
+		& when not (@skin= "office-365") {
+			.active-gradient();
+			color: @active-font-color;
+		}
+	}
+    border-bottom: 1px solid rgb(255,255,255);
+    border-bottom: 1px solid rgba(255,255,255,0.3);    
+}
+@{e-widget}.e-ddl-popup .e-active.e-hover{
+        & when (@skin= "material") {
+        /*material*/
+        background-color: @grey-200;
+        color: @accent-color; 
+    }
+}
+@{e-widget}.e-ddl .e-select, @{e-widget}.e-ddl.e-rtl .e-select,@{e-widget}.e-ddl .e-disable.e-select:hover {
+     & when (@skin= "material") {
+        /*material*/
+        background-color: @content-bg-color;
+        color: fade(@base-font-color,87%);
+        border: none;
+    }
+
+    & when not (@skin= "material")  {
+         & when (@skin= "office-365") {
+        /*office*/
+        width: 30px;
+        height: 100%;
+        background: @content-bg-color;
+     }
+        /*other*/
+        .bs-default-gradient();
+        color: @default-icon-color;
+        border-color: @content-border-color;
+    }
+}
+
+@{e-widget}.e-ddl .e-select, @{e-widget}.e-ddl.e-rtl .e-select, @{e-widget}.e-ddl .e-disable.e-select:hover {
+   .office-button-bg-color();
+}
+
+@{e-widget}.e-ddl .e-select.e-load {
+    background-image: @ajaxloaderimage;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+@{e-widget}.e-ddl-popup .e-resize-handle {
+  cursor: se-resize;
+  float: right;
+  padding: 4px 3px 0 0;
+  margin-right: 2px;
+}
+@{e-widget}.e-ddl-popup .e-resize-handle.e-rtl-resize {
+  float: left;
+  cursor: sw-resize;
+  transform: rotate(90deg); 
+  padding: 3px 0 0 3px;
+}
+@{e-widget}.e-ddl-popup .e-resizebar {
+    .bs-default-gradient();
+   border-top: 1px solid @content-bg-color;
+   height: 20px;
+   width: auto;
+   display: block;
+} 
+@{e-widget}.e-ddl-popup .e-atc.e-search .e-search:before, @{e-widget}.e-ddl-popup .e-atc.e-search .e-cross-circle:before  {
+    color:@content-border-color;
+}
+@{e-widget}.e-ddl-popup .e-checkwrap.e-check-act, @{e-widget}.e-ddl-popup .e-checkwrap:hover { 
+    & when (@skin= "material") {
+        /*material*/ 
+     border: 2px solid;
+     border-color: fade(@base-font-color,54%);
+    } 
+    & when not (@skin= "material") {
+		& when not (@skin= "office-365") {
+			border: 1px solid @content-border-color;
+		}
+    }
+}
+
+@{e-widget}.e-ddl-popup .e-checkwrap.e-check-act:hover { 
+	& when (@skin= "office-365") {
+		background-color: @theme-dark-alt;
+		border: 2px solid @theme-dark-alt;
+		color: @neutral-white;
+	}
+}
+@{e-widget}.e-ddl-popup .e-checkwrap.e-check-act{ 
+     & when (@skin= "material") {
+        /*material*/  
+        border-color: @accent-color; 
+    } 
+}
+@{e-widget}.e-ddl-popup .e-checkwrap { 
+     & when (@skin= "material") {
+        /*material*/ 
+       border-radius: 2px;   
+       border: 2px solid;
+       border-color: fade(@base-font-color,54%);           
+    } 
+    & when not (@skin= "material") {
+		& when (@skin= "office-365") {
+			background-color: @theme-dark-font;
+			border: 2px solid @neutral-tertiary;
+			color: @neutral-white;
+		}
+		& when not (@skin= "office-365") {
+			border: 1px solid @content-border-color;
+		}
+        /*other*/
+       border-radius: none; 
+    }
+    background-color: @content-bg-color;
+}
+
+@{e-widget}.e-ddl-popup .e-checkwrap:hover {
+	& when (@skin= "office-365") {
+		border: 2px solid @neutral-secondary-alt;
+	}
+}
+@{e-widget}.e-ddl-popup .e-check-act {
+     & when (@skin= "material") {
+        /*material*/ 
+        background-color: @accent-color; 
+        color: @accent-font-color;   
+        border-radius: 2px;             
+    } 
+    & when not (@skin= "material") {
+        /*other*/
+		& when (@skin= "office-365") {
+			border: 2px solid @theme-primary;
+			color: @neutral-white;
+			background-color: @theme-primary;
+		}
+		& when not (@skin= "office-365") {
+			.switch-checkbox-icontick;
+			color: @active-bg-stcolor;
+		}
+    } 
+}
+
+@{e-widget} .e-dropdownlist::-webkit-input-placeholder {
+   color: @content-font-color;
+}
+@{e-widget} .e-dropdownlist:-ms-input-placeholder {
+   color: @content-font-color;
+}
+@{e-widget} .e-dropdownlist::-moz-placeholder {
+   color: @content-font-color;
+}
+@{e-widget} .e-dropdownlist:-moz-placeholder {
+   color: @content-font-color;
+}
+
+@{e-widget}.e-ddl.e-widget.e-popactive .e-select .e-icon{
+    & when (@skin= "material") {
+        /*material*/ 
+      transform: rotate(180deg);  
+      transition: transform 300ms ease;          
+    } 
+}
+@{e-widget}.e-ddl.e-widget .e-select .e-icon{
+    & when (@skin= "material") {
+        transform: rotate(0deg);  
+        transition: transform 300ms ease;          
+    } 
+}
+
+@{e-widget}.e-ddl-popup .e-check-inact.e-ddl-anim:before{
+     & when (@skin= "material") {
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    top: 43%;
+    right: 6px;
+    transform: translate(-5%,-50%) scale(0);
+    width: 3px;
+    height: 3px;
+    background: rgba(255,64,129,.7);
+    content: '';
+    border: 0px solid rgba(255,64,129,.7);
+    animation: smallShadow .45s cubic-bezier(.25,.8,.25,1);
+    }
+}
+@{e-widget}.e-ddl-popup .e-check-act.e-ddl-anim:after{
+     & when (@skin= "material") {
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    top: 43%;
+    right: 6px;
+    transform: translate(-5%,-50%) scale(0);
+    width: 3px;
+    height: 3px;
+    background: rgba(255,64,129,.7);
+    content: '';
+    border: 1px solid rgba(255,64,129,.7);
+    animation: smallShadow .45s cubic-bezier(.25,.8,.25,1);
+     }
+}
+@{e-widget}.e-ddl.e-widget .e-in-wrap.e-disable{
+    & when not (@skin= "material") and not (@skin="office-365") {
+    border-color: @disable-control-border-color; 
+    background-color: @disable-control-background-color;
+    opacity: initial;
+    }
+}
+@{e-widget}.e-ddl.e-widget .e-input.e-disable{
+    & when not (@skin= "material") and not (@skin="office-365") {
+    background: @disable-control-background-color;
+    }
+}
+@{e-widget}.e-ddl.e-widget .e-select.e-disable{
+    & when not (@skin= "material") and not (@skin="office-365") {
+    background: @disable-icon-bg-color;
+    border-color: @disable-control-border-color;
+    }
+} 
+@{e-widget}.e-ddl.e-widget .e-input.e-disable{
+     & when (@skin= "material"){
+        background: @grey-100;
+     }
+}
