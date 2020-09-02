@@ -1,0 +1,1615 @@
+@import "definition.less";
+
+
+
+/*------------------------------------- Button -------------------------------------------*/
+.e-btn, @{e-widget} .e-tbtn, @{e-widget} .e-split-btn {
+    & when (@skin="material") {
+        font-family: @font-family;
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    & when not (@skin="material") {
+        font-weight: @content-font-weight;
+        font-size: @content-font-size;
+    }
+}
+
+@{e-widget}.e-btn{
+    & when (@skin="office-365") {
+        font-weight: 600;
+    }
+}
+@{e-widget}.e-btn.e-select:focus {
+    box-shadow: 0 0 2px @shadow-bg-color;
+}
+
+@{e-widget}.e-btn.e-txt.e-select, @{e-widget} .e-tbtn.e-txt.e-select, @{e-widget} .e-split-btn.e-txt.e-select {
+    & when not (@skin="material") {
+        font-family: @font-family;
+    }
+	& when (@skin="office-365") {
+        font-family: @font-family;
+        font-weight: 600;
+    }
+}
+
+@{e-widget}.e-split-btn-hide {
+    visibility: hidden;
+}
+
+@{e-widget}.e-rtl .e-splitarrowleft .e-split-btn.e-left-btn {
+    & when not (@skin="material") {
+        border-right: medium none;
+        border-left-color: @default-border-color;
+    }
+}
+
+@{e-widget}.e-rtl .e-splitarrowright .e-split-btn.e-left-btn {
+    & when not (@skin="material") {
+        border-left: medium none;
+        border-right-color: @default-border-color;
+    }
+}
+
+
+@{e-widget}.e-btn.e-select.e-disable, @{e-widget}.e-btn.e-disable.e-select:hover, @{e-widget}.e-btn.e-disable.e-select:hover {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.38);
+        border-radius: 2px;
+        border: fade(@base-font-color,12%);
+        color: fade(@base-font-color,26%);
+        background-color: @grey-50;
+        font-family: @font-family;
+        border-color: @grey-50;
+    }
+}
+
+@{e-widget}.e-btn.e-disable.e-select:hover, @{e-widget}.e-btn.e-disable.e-select:hover, @{e-widget} .e-tbtn.e-disable:hover,
+@{e-widget}.e-btn.e-disable.e-select:active, @{e-widget}.e-btn.e-disable.e-select:active {
+    & when not (@skin="material") {
+        .bs-default-gradient();
+        color: @default-font-color;
+        border-color: @default-border-color;
+        .border-selection();
+    }
+}
+
+@{e-widget}.e-btn.e-select, @{e-widget} .e-btn.e-tbtn.e-select, @{e-widget} .e-btn.e-split-btn.e-select {
+    & when not (@skin="material") {
+        .bs-default-gradient();
+        color: @default-font-color;
+        border-color: @default-border-color;
+        .border-selection();
+    }
+
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        border-radius: 2px;
+        color: fade(@base-font-color,87%);
+        background-color: @grey-50;
+        border-color: @grey-50;
+    }
+	& when (@skin="office-365") {
+		border-color:@neutral-lighter;
+		background-color:@neutral-lighter;
+		color:@theme-light-font;
+	}
+}
+
+@{e-widget}.e-btn.e-disable, @{e-widget}.e-btn.e-select.e-disable .e-icon,@{e-widget}.e-btn.e-select.e-disable .e-icon,@{e-widget}.e-btn.e-select.e-disable:hover .e-icon,@{e-widget}.e-btn.e-select.e-disable:active .e-icon, {
+    cursor: default;
+    & when (@skin="office-365") {
+		color:@neutral-tertiary-alt
+	}
+}
+
+/*flat button*/
+
+@{e-widget}.e-btn.e-select.e-flat:hover, @{e-widget}.e-btn.e-select.e-flat:focus {
+    & when (@skin="material") {
+        color: @accent-color;
+        border: none;
+        background-color: fade(@base-font-color,12%);
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-flat:active {
+    & when (@skin="material") {
+        color: @accent-color;
+        border: none;
+        background-color: fade(@base-font-color,12%);
+        border-radius: 0px;
+        box-shadow: none;
+    }
+}
+
+@{e-widget}.e-button.e-btn.e-flat.e-disable.e-select, @{e-widget}.e-button.e-btn.e-flat.e-disable.e-select:active, @{e-widget}.e-button.e-btn.e-flat.e-disable.e-select:hover {
+    & when (@skin="material") {
+        color: fade(@base-font-color,26%);
+        background-color: transparent;
+    }
+}
+
+/*end*/
+
+/*accent button*/
+
+@{e-widget}.e-btn.e-select.e-primary {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        color: @accent-font-color;
+        border-radius: 2px;
+        background: @accent-color;
+        border: none;
+        font-family: @font-family;
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-primary .e-icon, @{e-widget}.e-btn.e-select.e-primary:hover .e-icon {
+    & when (@skin="material") {
+        color: @content-bg-color;
+    }
+}
+
+@{e-widget} .e-tbtn.e-btn.e-select.e-primary:hover {
+    & when (@skin="material") {
+        background: none;
+    }
+}
+
+@{e-widget} .e-tbtn.e-btn.e-select.e-primary.e-active,@{e-widget} .e-tbtn.e-btn.e-select.e-primary.e-active:hover {
+    & when (@skin="material") {
+        background: @accent-color;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+
+@{e-widget}.e-btn.e-primary.e-select:hover, @{e-widget}.e-btn.e-primary.e-select:focus {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        color: @accent-font-color;
+        border-radius: 2px;
+        background: @accent-color;
+        border: none;
+        border-color: fade(@base-font-color,12%);
+    }
+	& when (@skin="office-365") {
+	    background-color: @theme-dark;
+		color: @theme-dark-font;
+		border-color:@theme-primary;
+	}
+}
+
+
+@{e-widget}.e-btn.e-select.e-primary:active {
+    & when (@skin="material") {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+        color: @accent-font-color;
+        border-radius: 2px;
+        background: @accent-color;
+        border-color: fade(@content-bg-color,12%);
+        border: none;
+    }
+	& when (@skin="office-365") {
+	    background-color: @theme-primary;
+		color: @theme-dark-font;
+		border-color:@theme-primary;
+	}
+}
+
+
+
+/*primary raised button*/
+
+
+@{e-widget}.e-btn.e-select.e-primary-raised {
+    & when (@skin="material") {
+        color: @accent-font-color;
+        border-radius: 2px;
+        background: @accent-color;
+        border: none;
+        font-family: @font-family;
+        box-shadow: none;
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-primary-raised .e-icon, @{e-widget}.e-btn.e-select.e-primary-raised:hover .e-icon {
+    & when (@skin="material") {
+        color: @content-bg-color;
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-primary-raised.e-active, @{e-widget}.e-btn.e-select.e-primary-raised.e-active:hover {
+    & when (@skin="material") {
+        background: @accent-color;
+        border: none;
+    }
+}
+
+
+@{e-widget}.e-btn.e-primary-raised.e-select:hover, @{e-widget}.e-btn.e-primary-raised.e-select:focus {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        color: @accent-font-color;
+        border-radius: 2px;
+        background: @accent-color;
+        border: none;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+
+@{e-widget}.e-btn.e-select.e-primary-raised:active {
+    & when (@skin="material") {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+        color: @accent-font-color;
+        border-radius: 2px;
+        background: @accent-color;
+        border-color: fade(@content-bg-color,12%);
+        border: none;
+    }
+}
+
+
+@{e-widget}.e-btn.e-select.e-primary-raised.e-disable, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable:hover {
+    & when (@skin="material") {
+        background: fade(@base-font-color,12%);
+        color: fade(@base-font-color,26%);
+        box-shadow: none;
+    }
+}
+
+
+/*end*/
+
+/*float button*/
+
+.e-float-btn.e-btn.e-select.e-icon {
+    & when (@skin="material") {
+        color: @accent-font-color;
+        background-color: @accent-color;
+        font-family: 'ej-webfont';
+        box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.16);
+    }
+
+    border: none;
+}
+
+
+.e-float-btn.e-btn.e-select.e-icon:hover {
+    & when (@skin="material") {
+        box-shadow: 0px 7px 10px 0px rgba(0,0,0,0.2);
+        color: @accent-font-color;
+        background-color: @accent-color;
+        border-color: fade(@base-font-color,12%);
+        font-family: 'ej-webfont';
+    }
+
+    border: none;
+}
+
+.e-float-btn.e-btn.e-select.e-icon:active {
+    & when (@skin="material") {
+        box-shadow: 0px 16px 20px 0px rgba(0,0,0,0.18);
+        color: @content-bg-color;
+        border-radius: 100%;
+        font-family: 'ej-webfont';
+        border-color: fade(@content-bg-color,12%);
+    }
+
+    border: none;
+}
+
+.e-float-btn.e-btn.e-select.e-icon:not(:active):after {
+    & when (@skin="material") {
+        background-color: fade(@content-bg-color,12%);
+    }
+
+    border: none;
+    box-shadow: none;
+}
+
+/*end*/
+
+
+/*icon button*/
+
+/*accent icon button*/
+
+.e-primary-icon-btn.e-btn.e-select.e-icon, .e-primary-icon-btn.e-btn.e-select.e-icon:hover {
+    & when(@skin="material") {
+        color: @accent-color;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon.e-disable, .e-primary-icon-btn.e-tbtn.e-btn.e-select.e-icon.e-disable:hover, .e-primary-icon-btn.e-btn.e-select.e-icon.e-disable:focus {
+    & when(@skin="material") {
+        color: fade(@base-font-color, 26%);
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon:focus {
+    & when(@skin="material") {
+        background-color: fade(@accent-color,26%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon:not(:active):after {
+    & when(@skin="material") {
+        background-color: fade(@content-bg-color, 26%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon:active {
+    & when(@skin="material") {
+        border-radius: 100%;
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon:focus:hover {
+    & when(@skin="material") {
+        background-color: fade(@accent-color,26%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon, .e-primary-icon-btn.e-btn.e-select.e-icon:focus, .e-primary-icon-btn.e-btn.e-select.e-icon:hover, .e-primary-icon-btn.e-btn.e-select.e-icon:active {
+    font-family: 'ej-webfont';
+}
+
+/*end*/
+
+
+/*flat icon button*/
+
+.e-flat-icon-btn.e-btn.e-tbtn.e-select.e-icon {
+    &when( @skin="material") {
+        color: fade(@base-font-color,54%);
+        background: none;
+        border: none;
+        font-family: 'ej-webfont';
+        box-shadow: none;
+    }
+}
+
+.e-flat-icon-btn.e-btn.e-select.e-icon:focus, .e-flat-icon-btn.e-btn.e-select.e-icon:hover {
+    &when( @skin="material") {
+        background-color: fade(@base-font-color,12%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-flat-icon-btn.e-tbtn.e-btn.e-select.e-icon:not(:active):after {
+    &when( @skin="material") {
+        background-color: @grey-400;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-flat-icon-btn.e-tbtn.e-btn.e-select.e-icon.e-active:not(:active):after {
+    &when( @skin="material") {
+        background-color: fade(@base-font-color,12%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-flat-icon-btn.e-btn.e-select.e-icon:active:hover, .e-flat-icon-btn.e-btn.e-select.e-icon:active, .e-flat-icon-btn.e-btn.e-select.e-icon.e-active {
+    &when( @skin="material") {
+        background-color: @grey-400;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-flat-icon-btn.e-btn.e-select.e-icon, .e-flat-icon-btn.e-btn.e-select.e-icon:focus, .e-flat-icon-btn.e-btn.e-select.e-icon:hover, .e-flat-icon-btn.e-btn.e-select.e-icon:active {
+    font-family: 'ej-webfont';
+}
+
+
+
+/*end*/
+
+
+
+/*normal icon button*/
+
+.e-icon-btn.e-btn.e-select.e-icon {
+    &when( @skin="material") {
+        color: fade(@base-font-color,87%);
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+	&when( @skin="office-365") {
+		color: @neutral-secondary;
+	}
+}
+
+.e-icon-btn.e-btn.e-select.e-icon:focus {
+    &when( @skin="material") {
+        background-color: fade(@base-font-color,12%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-icon-btn.e-btn.e-select.e-icon.e-disable, .e-icon-btn.e-btn.e-select.e-icon.e-disable:focus, .e-icon-btn.e-btn.e-select.e-icon.e-disable:hover,
+.e-flat-icon-btn.e-btn.e-select.e-icon.e-disable, .e-flat-icon-btn.e-btn.e-select.e-icon.e-disable:focus, .e-flat-icon-btn.e-btn.e-select.e-icon.e-disable:hover {
+    &when( @skin="material") {
+        color: fade(@base-font-color,26%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+
+.e-icon-btn.e-btn.e-select.e-icon:not(:active):after {
+    &when( @skin="material") {
+        background-color: fade(@base-font-color, 12%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-icon-btn.e-btn.e-select.e-icon:active {
+    & when(@skin="material") {
+        border-radius: 100%;
+    }
+	&when( @skin="office-365") {
+		color: @neutral-light-font;
+	}
+}
+
+.e-icon-btn.e-btn.e-select.e-icon:active, .e-primary-icon-btn.e-btn.e-select.e-icon:active,
+.e-icon-btn.e-btn.e-select.e-icon:hover, .e-primary-icon-btn.e-btn.e-select.e-icon:hover {
+    &when( @skin="material") {
+        background: none;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+.e-icon-btn.e-btn.e-select.e-icon:focus:hover {
+    &when( @skin="material") {
+        background-color: fade(@base-font-color,12%);
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.e-icon-btn.e-btn.e-select.e-icon, .e-icon-btn.e-btn.e-select.e-icon:focus, .e-icon-btn.e-btn.e-select.e-icon:hover, .e-icon-btn.e-btn.e-select.e-icon:active {
+    font-family: 'ej-webfont';
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon.e-disable, .e-flat-icon-btn.e-btn.e-select.e-icon.e-disable, .e-icon-btn.e-btn.e-select.e-icon.e-disable,
+.e-primary-icon-btn.e-btn.e-select.e-icon.e-disable:hover, .e-flat-icon-btn.e-btn.e-select.e-icon.e-disable:hover, .e-icon-btn.e-btn.e-select.e-icon.e-disable:hover {
+    &when (@skin="material") {
+        font-family: "ej-webfont";
+        background: transparent;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+.e-float-btn.e-btn.e-select.e-icon.e-disable, .e-float-btn.e-btn.e-select.e-icon.e-disable:hover, .e-float-btn.e-btn.e-select.e-icon.e-disable:focus {
+    &when (@skin="material") {
+        font-family: "ej-webfont";
+        box-shadow: none;
+        border: none;
+        border-radius: 50%;
+        color: fade(@base-font-color,26%);
+        background-color: fade(@base-font-color,12%);
+    }
+}
+
+.e-primary-icon-btn.e-btn.e-select.e-icon.e-disable:hover, .e-icon-btn.e-btn.e-select.e-icon.e-disable:hover {
+    &when (@skin="material") {
+        border-radius: 50%;
+    }
+}
+.e-icon-btn.e-btn.e-select.e-icon:hover {
+	&when (@skin="office-365") {
+		color:@neutral-light-font;
+	}
+}
+.e-icon-btn.e-btn.e-select.e-icon.e-disable {
+	 &when(@skin="office-365") {
+		color:@neutral-tertiary-alt;
+    }
+	
+}
+
+@{e-widget}.e-button.e-btn.e-select.e-disable:after,@{e-widget} .e-tbtn.e-btn.e-select.e-disable:after, @{e-widget}.e-split .e-split-btn.e-btn:after {
+    &when (@skin="material") {
+        content: none;
+    }
+}
+
+/*end*/
+
+/*end*/
+
+@{e-widget}.e-btn.e-select:hover, @{e-widget}.e-btn.e-select.e-active:hover {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        background-color: fade(@base-font-color,12%);
+        font-family: @font-family;
+    }
+
+    &when not(@skin="material") {
+        .hover-gradient();
+        border-color: @hover-border-color;
+        color: @hover-font-color;
+    }
+	& when (@skin="office-365") {
+	  background-color: @neutral-light;
+	  color: @neutral-light-font-alt;
+	  border-color:@theme-primary;
+	}
+}
+@{e-widget} .e-splitbutton.e-btn.e-left-btn:focus ,@{e-widget} .e-split-btn.e-btn.e-select.e-drp-btn:focus {
+	& when (@skin="office-365") {
+		border: 1px solid;
+		border-color:@theme-primary;
+		}
+}
+@{e-widget} .e-splitbutton.e-btn.e-left-btn.e-disable:focus ,@{e-widget} .e-split-btn.e-btn.e-select.e-drp-btn.e-disable:focus{
+    & when (@skin="office-365") {
+        border:none;
+    }
+}
+@{e-widget}.e-split.e-widget.e-disable {
+	& when (@skin="office-365") {
+		opacity:100;
+	}
+}
+
+@{e-widget} .e-splitbutton .e-btn.e-select:focus {
+	& when (@skin= "office-365") {
+		border:1px solid;
+	}
+}
+
+@{e-widget}.e-btn.e-select:focus {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        background-color: fade(@base-font-color,12%);
+        font-family: @font-family;
+    }
+    & when (@skin="office-365") {
+	    background-color: @neutral-light;
+		color: @neutral-light-font;
+		border-color:@theme-primary;
+	}
+}
+
+@{e-widget}.e-btn.e-select:active, @{e-widget}.e-btn.e-disable.e-active.e-select:hover, @{e-widget}.e-btn.e-disable.e-active.e-select:hover, @{e-widget}.e-tbtn.e-flat.e-active, @{e-widget}.e-tbtn.e-btn.e-select.e-flat {
+    & when (@skin="material") {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+        color: @base-font-color;
+        border-radius: 2px;
+        border: none;
+    }
+	& when (@skin="office-365") {
+		background-color: @theme-primary;
+		color: @theme-primary-font;
+		border-color:@theme-primary;
+	}
+}
+
+@{e-widget}.e-btn.e-select:active, @{e-widget}.e-tbtn.e-active {
+    & when (@skin="material") {
+        background-color: fade(@base-font-color,12%);
+    }
+}
+
+.e-drp-btn.e-select .e-icon, .e-btn.e-select .e-icon {
+    & when (@skin="material") {
+        color: fade(@base-font-color,54%);
+    }
+
+    & when not (@skin="material") {
+        color: @default-icon-color;
+    }
+}
+
+@{e-widget}.e-btn.e-select:active, @{e-widget}.e-btn.e-select:active,@{e-widget} .e-tbtn.e-btn.e-select.e-active,@{e-widget} .e-tbtn.e-btn.e-select.e-active.e-disable:hover{
+    & when not (@skin="material") {
+        .active-gradient();
+        border-color: @active-border-color;
+        color: @active-font-color;
+    }
+}
+.e-tbtn.e-btn.e-select.e-active:hover{
+    & when (@skin="office-365") {
+		background-color: @theme-dark;
+		color: @theme-dark-font;
+		border-color:@theme-dark;
+	}
+}
+@{e-widget}.e-btn.e-select:hover .e-icon {
+    & when (@skin="material") {
+        color: fade(@base-font-color,54%);
+    }
+     & when (@skin="office-365") {
+        color: @theme-dark-font;
+    }
+}
+
+@{e-widget} .e-drp-btn.e-select:hover, @{e-widget}.e-btn.e-select:hover .e-icon {
+    & when not(@skin="material") {
+        color: @hover-icon-color;
+    }
+
+    & when (@skin="material") {
+        color: fade(@base-font-color,54%);
+    }
+	 & when (@skin="office-365") {
+        color: @neutral-dark;
+    }
+}
+
+@{e-widget} .e-drp-btn.e-select:active, @{e-widget} .e-drp-btn.e-select:active, @{e-widget}.e-btn.e-select:active .e-icon, @{e-widget}.e-btn.e-select:active .e-icon, .e-btn.e-active .e-icon, .e-btn.e-disable.e-select.e-active:hover .e-icon, .e-btn.e-disable.e-select.e-active:hover .e-icon {
+    & when (@skin="material") {
+        color: fade(@base-font-color,54%);
+    }
+
+    & when not (@skin="material") {
+        color: @active-icon-color;
+    }
+}
+
+@{e-widget}.e-menu.e-split, @{e-widget}.e-menu.e-context.e-split, @{e-widget}.e-menu.e-context.e-split .e-list > ul, @{e-widget}.e-menu.e-widget.e-split li.e-list {
+    & when (@skin="material") {
+        background-color: @content-bg-color;
+    }
+    & when (@skin="office-365") {
+        background-color: @neutral-white;
+    }
+   & when not (@skin= "material") and not (@skin="office-365") {
+        background-color: @default-bg-stcolor;
+        color: @default-font-color;
+        border-color: @default-border-color;
+    }
+}
+@{e-widget}.e-menu.e-widget.e-split li.e-list:hover{
+    & when (@skin="office-365") {
+        background-color: @neutral-lighter;
+        color:@neutral-light-font;
+    }
+}
+@{e-widget} .e-split-btn-div .e-icon {
+    & when (@skin="material") {
+        padding: 0px;
+    }
+}
+
+@{e-widget}.e-btn.e-disable.e-select:hover, @{e-widget}.e-btn.e-disable, @{e-widget}.e-btn.e-disable.e-select:hover, @{e-widget}.e-btn.e-select.e-disable:hover, @{e-widget}.e-btn.e-select.e-disable {
+    & when (@skin="material") {
+        color: fade(@base-font-color,26%);
+        box-shadow: none;
+        border: none;
+        background-color: fade(@base-font-color,12%);
+        font-family: @font-family;
+    }
+	& when (@skin="office-365") {
+		background-color: @neutral-lighter;
+		color: @neutral-tertiary;
+		border-color:@neutral-lighter;
+	}
+}
+/*--------------------------------------------------ToggleButton----------------------------**/
+
+/*toggle button*/
+
+@{e-widget} .e-tbtn.e-btn.e-select {
+    &when(@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        border-radius: 2px;
+        color: fade(@base-font-color,87%);
+        background-color: @grey-50;
+        border-color: @grey-50;
+    }
+}
+
+@{e-widget} .e-tbtn.e-btn.e-select:hover,@{e-widget} .e-tbtn.e-btn.e-select:focus {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+        background-color: fade(@base-font-color,12%);
+        font-family: @font-family;
+    }
+}
+
+@{e-widget} .e-tbtn.e-btn.e-select.e-active:focus {
+	& when (@skin="office-365") {
+	    background-color: @theme-dark;
+		color: @theme-dark-font;
+		border-color:@theme-primary;
+	}
+}
+@{e-widget} .e-tbtn.e-btn.e-select.e-active {
+    & when (@skin="material") {
+        box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+        background-color: @accent-color;
+    }
+}
+
+@{e-widget} .e-tbtn.e-btn.e-select.e-active,@{e-widget} .e-tbtn.e-btn.e-select.e-active .e-icon {
+    & when (@skin="material") {
+        color: @accent-font-color;
+    }
+}
+
+@{e-widget} .e-tbtn.e-btn.e-select.e-active.e-disable, @{e-widget} .e-tbtn.e-btn.e-select.e-disable {
+    & when (@skin="material") {
+        box-shadow: none;
+        background-color: fade(@base-font-color,12%);
+        color: fade(@base-font-color,87%);
+    }
+}
+
+@{e-widget} .e-tbtn.e-select.e-flat:hover {
+    & when (@skin="material") {
+        background: none;
+    }
+}
+
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat, @{e-widget}.e-btn.e-select.e-flat {
+    & when (@skin="material") {
+        background: none;
+        color: @accent-color;
+        font-family: @font-family;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat .e-icon, @{e-widget}.e-btn.e-select.e-flat .e-icon {
+    & when (@skin="material") {
+        color: @accent-color;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat.e-active {
+    & when (@skin="material") {
+        background-color: @accent-color;
+        color: @accent-font-color;
+        box-shadow: none;
+        font-family: @font-family;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-active.e-flat .e-icon {
+    & when (@skin="material") {
+        color: @content-bg-color;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat.e-active:active {
+    & when (@skin="material") {
+        background-color: fade(@accent-color,61%);
+        border-radius: 2px;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat:active {
+    & when (@skin="material") {
+        background-color: fade(@accent-color,12%);
+        border-radius: 2px;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon:hover {
+    & when (@skin="material") {
+        font-family: "ej-webfont";
+        border-radius: 100%;
+        background: none;
+        border: none;
+        box-shadow: none;
+        color: fade(@base-font-color, 54%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable:hover, @{e-widget}.e-btn.e-select.e-flat.e-disable, @{e-widget}.e-btn.e-select.e-flat.e-disable:hover,
+@{e-widget}.e-split.e-widget.e-disable, @{e-widget}.e-split.e-widget.e-disable:hover, @{e-widget}.e-split.e-widget.e-disable .e-icon {
+    & when (@skin="material") {
+        color: fade(@base-font-color,26%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable:hover {
+    & when (@skin="material") {
+        background-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable .e-icon, @{e-widget}.e-btn.e-select.e-flat.e-disable .e-icon, @{e-widget}.e-btn.e-select.e-primary.e-disable .e-icon,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable .e-icon:hover,
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable .e-icon:hover, @{e-widget}.e-btn.e-select.e-flat.e-disable .e-icon:hover, .e-btn.e-select.e-primary.e-disable .e-icon:hover {
+    & when (@skin="material") {
+        color: fade(@base-font-color,26%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon:focus,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon:hover {
+    &when(@skin="material") {
+        background-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon:not(:active):after {
+    &when(@skin="material") {
+        background-color: fade(@accent-color,12%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-active:not(:active):after {
+    &when(@skin="material") {
+        background-color: fade(@content-bg-color,12%);
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-active,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-active:hover {
+    & when (@skin="material") {
+        color: @accent-color;
+        background: none;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-active:focus, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-active:hover {
+    &when(@skin="material") {
+        background-color: fade(@accent-color,26%);
+        color: @accent-font-color;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-disable,@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-toggle-icon-btn.e-icon.e-disable:active, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable.e-toggle-icon-btn.e-icon.e-icon:focus, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-disable.e-toggle-icon-btn.e-icon.e-icon:hover {
+    & when (@skin="material") {
+        color: fade(@base-font-color,26%);
+        background-color: transparent;
+    }
+}
+
+@{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat.e-disable, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat.e-disable:active, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat.e-disable:hover, @{e-widget} .e-togglebutton.e-btn.e-tbtn.e-select.e-flat.e-disable:focus {
+    & when (@skin="material") {
+        background: none;
+    }
+}
+@{e-widget} .e-tbtn.e-btn.e-active:hover .e-icon
+{
+    & when (@skin= "office-365")
+    {
+        /*office-365*/
+        color: @theme-primary-font;
+    }
+
+    & when (@skin= "material")
+    {
+        color: @primary-font-color;
+    }
+
+    & when not (@skin= "office-365") and not (@skin= "material")
+    {
+        color: @active-icon-color;
+    }
+}
+/*-------------------------------------------SplitButton----------------------------------------------------*/
+
+@{e-widget}.e-btn.e-select {
+    & when (@skin="material") {
+        color: fade(@base-font-color, 87%);
+    }
+}
+
+@{e-widget}.e-btn.e-select .e-icon {
+    & when (@skin="material") {
+        color: fade(@base-font-color, 54%);
+    }
+}
+@{e-widget}.e-split.e-widget.e-btn e-split-btn-div .e-icon:before {
+	& when (@skin= "office-365") {
+        content: "\e673";
+        }
+}
+@{e-widget}.e-btn.e-select.e-disable {
+    & when (@skin="material") {
+        color: fade(@base-font-color, 26%);
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-disable .e-icon {
+    & when (@skin="material") {
+        color: fade(@base-font-color, 26%);
+    }
+}
+
+@{e-widget}.e-split.e-widget {
+    & when (@skin="material") {
+        color: fade(@base-font-color,87%);
+    }
+	background: none;
+}
+
+@{e-widget}.e-split.e-widget:hover, @{e-widget}.e-split.e-widget:focus {
+    & when (@skin="material") {
+        background-color: fade(@base-font-color,12%);
+        border-radius: 2px;
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-active .e-splitarrowright, @{e-widget}.e-split.e-widget.e-active .e-splitarrowleft, @{e-widget}.e-split.e-widget.e-active .e-splitarrowtop, @{e-widget}.e-split.e-widget.e-active .e-splitarrowbottom {
+    & when (@skin="material") {
+        background-color: @content-bg-color;
+        border-radius: 2px;
+        box-shadow: rgba(0,0,0,0.26);
+    }
+}
+
+@{e-widget}.e-split.e-widget .e-in-wrap.e-splitarrowright .e-split-btn.e-left-btn, @{e-widget}.e-split.e-widget.e-rtl .e-in-wrap.e-splitarrowleft .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0px 0.5px 0px 0px;
+        border-style: solid;
+    }
+}
+
+@{e-widget}.e-split.e-widget .e-in-wrap.e-splitarrowleft .e-split-btn.e-left-btn, @{e-widget}.e-split.e-widget.e-rtl .e-in-wrap.e-splitarrowright .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0px 0px 0px 0.5px;
+        border-style: solid;
+    }
+}
+
+@{e-widget}.e-split.e-widget .e-in-wrap.e-splitarrowtop .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0.5px 0px 0px 0px;
+        border-style: solid;
+    }
+}
+
+@{e-widget}.e-split.e-widget .e-in-wrap.e-splitarrowbottom .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+    }
+}
+
+@{e-widget}.e-split.e-widget:hover .e-in-wrap .e-split-btn.e-left-btn, @{e-widget}.e-split.e-widget.e-active .e-in-wrap .e-split-btn.e-left-btn, @{e-widget}.e-split.e-widget:focus .e-in-wrap .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget}.e-split.e-widget:hover .e-in-wrap .e-split-btn.e-left-btn, @{e-widget}.e-split.e-widget:hover .e-in-wrap .e-split-btn.e-drp-btn {
+    & when (@skin="material") {
+        border-style: solid;
+        background-color: @grey-100;
+        box-shadow: none;
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-drop:hover .e-in-wrap .e-split-btn.e-left-btn.e-droparrowbottom, @{e-widget}.e-split.e-widget.e-drop:hover .e-in-wrap .e-split-btn.e-left-btn.e-droparrowtop, @{e-widget}.e-split.e-widget.e-drop:hover .e-in-wrap .e-split-btn.e-left-btn.e-droparrowleft, @{e-widget}.e-split.e-widget.e-drop:hover .e-in-wrap .e-split-btn.e-left-btn.e-droparrowright {
+    & when (@skin="material") {
+        border: none;
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-disable:hover .e-in-wrap .e-split-btn.e-left-btn.e-disable, @{e-widget}.e-split.e-widget.e-disable:hover .e-in-wrap .e-split-btn.e-drp-btn.e-disable {
+    & when (@skin="material") {
+        background-color: transparent;
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-disable:hover .e-in-wrap .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-color: transparent;
+    }
+}
+
+@{e-widget}.e-split.e-widget:hover .e-in-wrap.e-splitarrowright .e-split-btn.e-drp-btn, @{e-widget}.e-split.e-widget:hover .e-in-wrap.e-splitarrowleft .e-split-btn.e-drp-btn, @{e-widget}.e-split.e-widget:hover .e-in-wrap.e-splitarrowtop .e-split-btn.e-drp-btn, @{e-widget}.e-split.e-widget:hover .e-in-wrap.e-splitarrowbottom .e-split-btn.e-drp-btn {
+    & when (@skin="material") {
+        border: none;
+    }
+}
+
+@{e-widget}.e-split.e-widget:focus {
+    & when (@skin="material") {
+        border-style: solid;
+        background-color: @grey-100;
+        border: none;
+        outline: none;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-active {
+    & when (@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    }
+}
+
+/*--*/
+
+@{e-widget}.e-split.e-widget.e-active .e-in-wrap.e-splitarrowbottom .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-active .e-in-wrap.e-splitarrowleft .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0px 0px 0px 0.5px;
+        border-style: solid;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-active .e-in-wrap.e-splitarrowtop .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0.5px 0px 0px 0px;
+        border-style: solid;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+@{e-widget}.e-split.e-widget.e-active .e-in-wrap.e-splitarrowbottom .e-split-btn.e-left-btn {
+    & when (@skin="material") {
+        border-width: 0px 0px 0.5px 0px;
+        border-style: solid;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+/*primary button*/
+
+@{e-widget}.e-btn.e-select.e-primary, @{e-widget}.e-btn.e-select.e-primary:active {
+    & when not (@skin="material") {
+        .active-gradient();
+        border-color: @active-border-color;
+        color: @active-font-color;
+    }
+	& when (@skin="office-365") {
+	    background-color: @theme-primary;
+		color: @neutral-white;
+		border-color:@theme-primary;
+	}
+}
+
+@{e-widget}.e-btn.e-select.e-primary:hover {
+    & when not (@skin="material") {
+        .hover-gradient();
+        border-color: @hover-border-color;
+        color: @hover-font-color;
+    }
+	& when (@skin="office-365") {
+	    background-color: @theme-dark;
+		color: @theme-dark-font;
+		border-color:@theme-dark;
+	}
+}
+
+
+@{e-widget}.e-btn.e-select.e-primary .e-icon, @{e-widget}.e-btn.e-select.e-primary .e-icon:active {
+
+    & when not (@skin="material") {
+        color: @active-icon-color;
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-primary:hover .e-icon {
+
+    & when not (@skin="material") {
+        color: @hover-icon-color;
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-primary:active:hover .e-icon, @{e-widget}.e-btn.e-select.e-primary:active:hover {
+
+    & when not (@skin="material") {
+        color: @active-font-color;
+    }
+    & when (@skin="bootstrap") {
+        .active-gradient();
+    }
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-primary, @{e-widget}.e-btn.e-select.e.e-disable.e-primary:active, @{e-widget}.e-btn.e-select.e-disable.e-primary:hover {
+
+    & when not (@skin="material") {
+        .active-gradient();
+        border-color: fade(@active-border-color,50%);
+        color: fade(@active-font-color,50%);
+    }
+	& when (@skin="office-365") {
+		background-color: @neutral-lighter;
+		color: @neutral-tertiary;
+		border-color:@neutral-lighter;
+	}
+	
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-primary .e-icon, @{e-widget}.e-btn.e-select.e-disable.e-primary:hover .e-icon, @{e-widget}.e-btn.e-select.e-disable.e-primary:active .e-icon {
+    & when not (@skin="material") {
+        color: fade(@active-icon-color,50%);
+    }
+}
+
+@{e-widget}.e-button.e-btn:not(:active):after, @{e-widget} .e-tbtn.e-btn.e-active:not(:active):after, @{e-widget}.e-split .e-split-btn.e-select.e-btn:not(:active):after,
+@{e-widget} .e-tbtn.e-btn.e-flat.e-active:not(:active):after, @{e-widget}.e-colorwidget .e-color-container .e-selected-color:active::after, @{e-widget}.e-colorwidget .e-select:active .e-icon::after, @{e-widget}.e-colorpicker .e-colorblock .e-color-image.e-add:active:after,
+@{e-widget}.e-groupbutton > .e-ul > .e-grp-btn-item.e-active:not(:active):after, @{e-widget}.e-groupbutton > .e-ul > .e-grp-btn-item:not(:active):after, {
+    &when( @skin="material") {
+        background-color: fade(@content-bg-color,12%);
+    }
+}
+
+@{e-widget}.e-button.e-btn.e-flat:not(:active):after, @{e-widget} .e-tbtn.e-btn.e-flat:not(:active):after, @{e-widget} .e-tbtn.e-btn:not(:active):after {
+    & when (@skin="material") {
+        background-color: fade(@accent-color,12%);
+    }
+}
+
+
+/*end*/
+/*------------------------------------Custom Button---------------------------------------*/
+@{e-widget}.e-btn.e-select.e-success {
+    color: #fff;
+    background: #5cb85c;
+    border-color: #4cae4c;
+}
+
+@{e-widget}.e-btn.e-select.e-success .e-icon, @{e-widget}.e-btn.e-select.e-info .e-icon, @{e-widget}.e-btn.e-select.e-warning .e-icon, @{e-widget}.e-btn.e-select.e-danger .e-icon {
+    color: #fff;
+}
+
+@{e-widget}.e-btn.e-select.e-success:active, @{e-widget}.e-btn.e-select.e-success:hover, @{e-widget}.e-btn.e-select.e-success:hover:focus {
+    background: #449d44;
+    border-color: #398439;
+}
+
+
+@{e-widget}.e-btn.e-select.e-success:focus, @{e-widget}.e-btn.e-select.e-success:active:hover, @{e-widget}.e-btn.e-select.e-success:active:focus {
+    background: #398439;
+    border-color: #255625;
+}
+
+@{e-widget}.e-btn.e-select.e-success:focus {
+    background-color: #449d44;
+}
+
+@{e-widget}.e-btn.e-select.e-info {
+    color: #fff;
+    background: #5bc0de;
+    border-color: #46b8da;
+}
+
+@{e-widget}.e-btn.e-select.e-info:active, @{e-widget}.e-btn.e-select.e-info:hover, @{e-widget}.e-btn.e-select.e-info:focus, @{e-widget}.e-btn.e-select.e-info:hover:focus {
+    background: #31b0d5;
+    border-color: #269abc;
+}
+
+@{e-widget}.e-btn.e-select.e-info:focus {
+    border-color: #1b6d85;
+}
+
+@{e-widget}.e-btn.e-select.e-info:active:hover, @{e-widget}.e-btn.e-select.e-info:active:focus {
+    background: #269abc;
+    border-color: #1b6d85;
+}
+
+@{e-widget}.e-btn.e-select.e-warning {
+    color: #fff;
+    background: #f0ad4e;
+    border-color: #eea236;
+}
+
+@{e-widget}.e-btn.e-select.e-warning:active, @{e-widget}.e-btn.e-select.e-warning:hover, @{e-widget}.e-btn.e-select.e-warning:focus, @{e-widget}.e-btn.e-select.e-warning:hover:focus {
+    background: #ec971f;
+    border-color: #d58512;
+}
+
+@{e-widget}.e-btn.e-select.e-warning:focus {
+    border-color: #985f0d;
+}
+
+@{e-widget}.e-btn.e-select.e-warning:active:hover, @{e-widget}.e-btn.e-select.e-warning:active:focus {
+    background: #d58512;
+    border-color: #985f0d;
+}
+
+@{e-widget}.e-btn.e-select.e-danger {
+    color: #fff;
+    background: #d9534f;
+    border-color: #d43f3a;
+}
+
+@{e-widget}.e-btn.e-select.e-danger:active, @{e-widget}.e-btn.e-select.e-danger:hover, @{e-widget}.e-btn.e-select.e-danger:focus, @{e-widget}.e-btn.e-select.e-danger:hover:focus {
+    background: #c9302c;
+    border-color: #ac2925;
+}
+
+@{e-widget}.e-btn.e-select.e-danger:focus {
+    border-color: #761c19;
+}
+
+@{e-widget}.e-btn.e-select.e-danger:active:hover, @{e-widget}.e-btn.e-select.e-danger:active:focus {
+    background: #ac2925;
+    border-color: #761c19;
+}
+
+@{e-widget}.e-btn.e-select.e-link, @{e-widget}.e-btn.e-select.e-link .e-icon {
+    background: transparent;
+    font-weight: 400;
+    color: #337ab7;
+    border: none;
+    box-shadow: none;
+}
+
+@{e-widget}.e-btn.e-select.e-link:active, @{e-widget}.e-btn.e-select.e-link:active .e-icon {
+    text-decoration: none;
+}
+
+@{e-widget}.e-btn.e-select.e-link:hover, @{e-widget}.e-btn.e-select.e-link:hover .e-icon, @{e-widget}.e-btn.e-select.e-link:focus, @{e-widget}.e-btn.e-select.e-link:focus .e-icon,
+@{e-widget}.e-btn.e-select.e-link:active:hover, @{e-widget}.e-btn.e-select.e-link:active:hover .e-icon {
+    color: #23527c;
+}
+
+@{e-widget}.e-btn.e-select.e-link.e-txt:hover, @{e-widget}.e-btn.e-select.e-link.e-txt:focus, @{e-widget}.e-btn.e-select.e-link.e-txt:active:hover{
+    text-decoration: underline;
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-success, @{e-widget}.e-btn.e-select.e-disable.e-success:focus, @{e-widget}.e-btn.e-select.e-disable.e-success:active, @{e-widget}.e-btn.e-select.e-disable.e-success:active:hover {
+    background: fade(#5cb85c,50%);
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-info, @{e-widget}.e-btn.e-select.e-disable.e-info:hover, @{e-widget}.e-btn.e-select.e-disable.e-info:focus, @{e-widget}.e-btn.e-select.e-disable.e-info:active, @{e-widget}.e-btn.e-select.e-disable.e-info:active:hover {
+    background: fade(#5bc0de,50%);
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-warning, @{e-widget}.e-btn.e-select.e-disable.e-warning:hover, @{e-widget}.e-btn.e-select.e-disable.e-warning:focus, @{e-widget}.e-btn.e-select.e-disable.e-warning:active, @{e-widget}.e-btn.e-select.e-disable.e-warning:active:hover {
+    background: fade(#f0ad4e,50%);
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-danger, @{e-widget}.e-btn.e-select.e-disable.e-danger:hover, @{e-widget}.e-btn.e-select.e-disable.e-danger:focus, @{e-widget}.e-btn.e-select.e-disable.e-danger:active, @{e-widget}.e-btn.e-select.e-disable.e-danger:active:hover {
+    background: fade(#d9534f,50%);
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-success, @{e-widget}.e-btn.e-select.e-disable.e-success:active:hover, @{e-widget}.e-btn.e-select.e-disable.e-info, @{e-widget}.e-btn.e-select.e-disable.e-info:active:hover,
+@{e-widget}.e-btn.e-select.e-disable.e-warning, @{e-widget}.e-btn.e-select.e-disable.e-warning:active:hover, @{e-widget}.e-btn.e-select.e-disable.e-danger, @{e-widget}.e-btn.e-select.e-disable.e-danger:active:hover, @{e-widget}.e-btn.e-select.e-disable.e-link, @{e-widget}.e-btn.e-select.e-disable.e-link:active:hover {
+    color: fade(#fff,50%);
+    border-color: transparent;
+    box-shadow: none;
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-link, @{e-widget}.e-btn.e-select.e-disable.e-link.e-txt, @{e-widget}.e-btn.e-select.e-disable.e-link:hover, @{e-widget}.e-btn.e-select.e-disable.e-link.e-txt:hover, @{e-widget}.e-btn.e-select.e-disable.e-link:active, @{e-widget}.e-btn.e-select.e-disable.e-link.e-txt:active,
+@{e-widget}.e-btn.e-select.e-disable.e-link:focus, @{e-widget}.e-btn.e-select.e-disable.e-link:focus .e-txt, @{e-widget}.e-btn.e-select.e-disable.e-link:active:hover, @{e-widget}.e-btn.e-select.e-disable.e-link.e-txt:active:hover{
+    color: fade(#337ab7,50%);
+    background: transparent;
+    text-decoration: none;
+}
+
+@{e-widget}.e-btn.e-select.e-disable.e-link .e-icon, @{e-widget}.e-btn.e-select.e-disable.e-link:hover .e-icon, @{e-widget}.e-btn.e-select.e-disable.e-link:focus .e-icon, @{e-widget}.e-btn.e-select.e-disable.e-link:active .e-icon, @{e-widget}.e-btn.e-select.e-disable.e-link:active:hover .e-icon {
+    color: fade(#337ab7,50%);
+}
+
+/*---end---*/
+
+/*------------------------------------- Common -------------------------------------------*/
+.ejinputtext {
+    background-color: @content-bg-color;
+
+    & when (@skin= "material") {
+        color: @base-font-color;
+        border: 1px solid @base-font-color;
+        color: fade(@base-font-color,87%);
+        border: 1px solid fade(@base-font-color,26%);
+    }
+
+    & when not (@skin= "material") {
+        border: 1px solid @content-border-color;
+        color: @content-font-color;
+    }
+
+    outline: medium none;
+}
+
+.e-textbox, .e-textarea {
+    background-color: @content-bg-color;
+
+    & when (@skin= "material") {
+        color: @base-font-color;
+        border-color: @base-font-color;
+        color: fade(@base-font-color,87%);
+        border-color: fade(@base-font-color,12%);
+    }
+
+    & when (@skin= "office-365") {
+        border-color: @neutral-tertiary-alt;
+        color: @neutral-primary;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        border-color: @content-border-color;
+        color: @content-font-color;
+    }
+}
+
+.ejinputtext:focus {
+    & when (@skin= "material") {
+        box-shadow: none;
+        border: 1px solid fade(@base-font-color,54%);
+    }
+
+    & when not (@skin= "material") {
+        box-shadow: 0 0 @shadow-bg-size @shadow-bg-color;
+    }
+}
+
+.e-textbox:hover, .e-textarea:hover {
+    & when (@skin= "material") {
+        box-shadow: none;
+    }
+
+    & when (@skin= "office-365") {
+        border-color: @neutral-secondary-alt;
+        background: @neutral-white;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        .focus-border-color();
+    }
+}
+
+.e-textbox:focus, .e-textarea:focus {
+    & when (@skin= "material") {
+        box-shadow: none;
+        border-color: @accent-color;
+    }
+
+    & when (@skin= "office-365") {
+        border-color: @theme-primary;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        box-shadow: 0 0 @shadow-bg-size @shadow-bg-color;
+        .focus-border-color();
+    }
+}
+
+.e-textbox.e-animation:focus, .e-textarea.e-animation:focus {
+    & when (@skin= "material") {
+        border-color: @base-font-color;
+        border-color: fade(@base-font-color,12%);
+    }
+}
+
+.e-ripple-bar:before, .e-ripple-bar:after {
+    & when (@skin= "material") {
+        background: @accent-color;
+    }
+}
+
+.e-textbox[disabled], .e-textarea[disabled] {
+    box-shadow: none;
+	
+    & when (@skin= "material") {
+        border-bottom-style: dashed;
+        background-image: linear-gradient(to right,rgba(0,0,0,.38) 0%,rgba(0,0,0,.38) 33%,transparent 0%);
+        background-image: -ms-linear-gradient(left,transparent 0%,rgba(0,0,0,.38) 100%);
+        background-position: bottom -1px left 0;
+        background-size: 4px 1px;
+        background-repeat: repeat-x;
+        color: @base-font-color;
+        color: fade(@base-font-color,26%);
+    }
+
+    & when (@skin= "office-365") {
+        background: @neutral-lighter;
+        border-color: @neutral-lighter;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+		background-color:@disable-control-background-color;
+	    border-color:@disable-control-border-color;
+        color: fade(@content-font-color,38%);
+    }
+}
+
+.e-textbox[disabled]:hover, .e-textarea[disabled]:hover, .e-textbox[disabled]:focus, .e-textarea[disabled]:focus {
+    & when (@skin= "office-365") {
+        border-color: @neutral-lighter;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        border-color: @content-border-color;
+    }
+
+    box-shadow: none;
+}
+
+.e-textbox::selection, .e-textarea::selection {
+    & when (@skin= "material") {
+        background: @accent-color;
+        color: @accent-font-color;
+    }
+
+    & when (@skin= "office-365") {
+        background: @theme-primary;
+        color: @theme-primary-font;
+    }
+}
+
+.e-textbox::-moz-selection, .e-textarea::-moz-selection {
+    & when (@skin= "material") {
+        background: @accent-color;
+        color: @accent-font-color;
+    }
+
+    & when (@skin= "office-365") {
+        background: @theme-primary;
+        color: @theme-primary-font;
+    }
+}
+
+.e-textbox::-webkit-input-placeholder, .e-textarea::-webkit-input-placeholder {
+    & when (@skin= "material") {
+        font-style: normal;
+        color: fade(@base-font-color,38%);
+    }
+
+    & when (@skin= "office-365") {
+        color: @neutral-tertiary;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        color: @content-font-color;
+    }
+}
+
+.e-textbox:-ms-input-placeholder, .e-textarea:-ms-input-placeholder {
+    & when (@skin= "material") {
+        color: fade(@base-font-color,38%);
+    }
+
+    & when (@skin= "office-365") {
+        color: @neutral-tertiary;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        color: @content-font-color;
+    }
+}
+
+.e-textbox::-moz-placeholder, .e-textarea::-moz-placeholder {
+    & when (@skin= "material") {
+        color: fade(@base-font-color,38%);
+    }
+
+    & when (@skin= "office-365") {
+        color: @neutral-tertiary;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        color: @content-font-color;
+    }
+}
+
+.e-textbox:-moz-placeholder, .e-textarea:-moz-placeholder {
+    & when (@skin= "material") {
+        color: fade(@base-font-color,38%);
+    }
+
+    & when (@skin= "office-365") {
+        color: @neutral-tertiary;
+    }
+
+    & when not (@skin= "material") and not (@skin="office-365") {
+        color: @content-font-color;
+    }
+}
+
+.e-textbox.e-error, .e-textarea.e-error {
+    & when (@skin= "office-365") {
+        border-color: @error-color;
+    }
+}
+
+.e-validation-error {
+    & when (@skin= "office-365") {
+        color: @error-color;
+    }
+}
+
+@{e-widget}.e-menu.e-split.e-context {
+    &when(@skin="material") {
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+    }
+}
+
+
+@{e-widget}.e-menu.e-split.e-context .e-list > .e-menulink {
+    &when(@skin="material") {
+        color: fade(@base-font-color,87%);
+    }
+
+    &when not(@skin="material") {
+        color: @default-font-color;
+    }
+}
+
+@{e-widget}.e-menu.e-split.e-context .e-list .e-icon {
+    &when(@skin="material") {
+        color: fade(@base-font-color,54%);
+    }
+}
+
+@{e-widget}.e-menu.e-split.e-context .e-list.e-mhover {
+    &when(@skin="material") {
+        background-color: @grey-200;
+    }
+}
+@{e-widget}.e-btn.e-disable.e-select, @{e-widget}.e-btn.e-disable.e-select,.e-tbtn.e-btn.e-disable.e-select.e-active, @{e-widget} .e-tbtn.e-disable,
+@{e-widget}.e-btn.e-disable.e-select:active, @{e-widget}.e-btn.e-disable.e-select:active,
+@{e-widget}.e-split.e-disable{
+     & when not (@skin= "material") and not (@skin="office-365"){
+     background-color: @disable-control-background-color;
+    border-color:@disable-control-border-color;
+    color:@disable-icon-bg-color;
+    opacity:1;
+    }
+}
+@{e-widget}.e-btn.e-disable.e-select,@{e-widget}.e-btn.e-disable.e-select:hover,@{e-widget} .e-tbtn.e-disable:hover, @{e-widget}.e-btn.e-disable.e-select:active, @{e-widget} .e-tbtn.e-btn.e-disable.e-select.e-active:hover{
+     & when not (@skin= "material") and not (@skin="office-365"){
+     background-color: @disable-control-background-color;
+    border-color:@disable-control-border-color;
+    color:@disable-icon-bg-color;
+    opacity:1;
+    }
+}
+@{e-widget}.e-btn.e-disable.e-select:hover .e-icon,
+@{e-widget}.e-btn.e-disable.e-select:active .e-icon{
+     & when not (@skin= "material") and not (@skin="office-365"){
+     color:@disable-icon-bg-color;
+     }
+}
+@{e-widget}.e-btn.e-disable.e-select .e-icon{
+     & when not (@skin= "material") and not (@skin="office-365"){
+     color:@disable-icon-bg-color;
+     }
+}
+@{e-widget}.e-btn.e-disable.e-select:focus{
+     & when not (@skin= "material") and not (@skin="office-365"){
+    box-shadow:none;
+    }
+}
+
+@{e-widget}.e-split.e-drop.e-rtl .e-in-wrap .e-left-btn .e-split-btn-div .e-icon{
+    & when (@skin= "office-365") {
+       padding:4px 3px 4px 8px;
+    }
+}
+@{e-widget}.e-split.e-drop .e-in-wrap .e-left-btn .e-split-btn-div .e-icon{
+    & when (@skin= "office-365") {
+       padding:4px 8px 4px 3px;
+    }
+}
