@@ -1,0 +1,204 @@
+@import "definition.less";
+
+.e-excelfilter.e-dlgcontainer {
+    font-family: @font-family;
+    font-weight: normal;
+    font-size: @font-size + 1;   
+    color: @gcontent-font-color;
+    z-index:10001;
+    & when (@skin= "office-365") {
+        padding :20px 12px;
+    }
+}
+
+.e-excelfilter .e-searchcontainer,
+.e-excelfilter.e-dlgcontainer {
+    background: none @gcontent-bg-color;
+}
+.e-excelfilter .e-btncan{
+    & when (@skin= "material") {
+        color:@base-font-color !important; 
+  }
+
+}
+.e-excelfilter .e-menu,
+.e-excelfilter .e-menu.e-vertical,
+.e-excelfilter .e-menu.e-vertical .e-list > ul {
+    background: @gcontent-bg-color;
+    & when (@skin= "material") {
+        box-shadow:none;
+    }
+}
+
+.e-excelfilter .e-checkboxlist {
+    background: @alt-row-bg-color;
+    border: @alt-row-bg-color;
+}
+.e-excelfilter.e-dlgcontainer,
+.e-excelfilter.e-dlgcustom .e-fieldset,
+.e-excelfilter .e-menu.e-vertical .e-list > ul{
+    border-width: @border-size;
+    border-style: @border-type;
+    border-color: @scroll-bg-color;
+}
+.e-excelfilter .e-checkboxlist label.e-ftrchk,
+.e-excelfilter.e-dlgcustom label.e-caption,
+.e-excelfilter .e-searchbox .e-searchitem{
+    font-weight:normal;
+}
+.e-excelfilter .e-optable .e-fields .e-value span.e-widget{
+    & when (@skin= "material") {
+      width:160px !important;
+    }
+}
+ .e-sortasc,
+ .e-sortdesc {
+    font-size: @font-size + 6;
+}
+.e-excelfilter.e-dlgcustom .e-fieldset legend {      
+       font-size: @font-size + 2;
+       color: @gcontent-font-color;
+       border: none;      
+}
+.e-excelfilter .e-select:hover .e-icon{
+color: @hover-icon-color;
+}
+.e-excelfilter.e-dlgcustom .e-input{
+line-height: 1.7em;
+}
+.e-excelfilter{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+     user-select: none;
+}
+.e-excelfilter .e-menu .e-list.e-fghdrcolor, .e-excelfilter .e-menu .e-list.e-bghdrcolor, e-excelfilter .e-menu .e-list.e-fghdrcolor.e-mhover.e-mfocused, .e-excelfilter .e-menu .e-list.e-bghdrcolor.e-mhover.e-mfocused,
+.e-excelfilter .e-menu.e-vertical .e-list.e-fghdrcolor:hover, .e-excelfilter .e-menu.e-vertical .e-list.e-bghdrcolor:hover  {
+    background: @content-bg-color;
+}
+.e-bghdrcolor > a, .e-fghdrcolor > a {
+	color: @gheader-font-color;
+}
+.e-excelfilter .e-menu .e-list.e-valcolor{
+    border-color: @gheader-bg-color;
+}
+.e-excelfilter .e-menu .e-list.e-valcolor.e-mhover.e-mfocused{
+   border-color: @gheader-border-color;
+   background: transparent;
+}
+.e-excelfilter .e-menu .e-list.e-fghdrcolor.e-mhover > a, .e-excelfilter .e-menu .e-list.e-fghdrcolor.e-mfocused > a, 
+.e-excelfilter .e-menu .e-list.e-bghdrcolor.e-mhover > a, .e-excelfilter .e-menu .e-list.e-bghdrcolor.e-mfocused > a {
+    background: transparent;  
+    color: @gheader-font-color; 
+}
+
+.e-excelfilter .e-searchbox .e-ejinputtext{
+     & when (@skin= "material") {
+         border-width:0 0 2px 0;
+         text-indent:0.75em; 
+     }
+}
+.e-excelfilter .e-searchbox .e-ejinputtext:focus{
+
+     & when (@skin= "material") {
+         box-shadow:none;
+         border-color:@accent-color;
+     }
+}
+
+.e-excelfilter .e-menu-wrap ul.e-menu{
+    & when (@skin= "material") {
+        padding-left:0px;
+        padding-top:12px;
+    }
+}
+.e-excelfilter .e-btncontainer input,
+.e-excelfilter .e-checkboxlist .e-ftrchk{
+    & when (@skin= "material") {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        margin-left: 14px;
+    }
+}
+.e-excelfilter .e-searchcontainer .e-fields{
+    & when (@skin= "material") {
+        margin:12px 0;
+    }
+}
+.e-btn.e-btn-normal,.e-tbtn.e-btn-normal{
+    & when (@skin= "material") {
+        padding:0 10px;
+    }
+}
+
+.e-excelfilter .e-btncontainer > div{
+        & when (@skin= "material") {
+        padding-left: 41px;
+    }
+
+}
+
+.e-excelfilter.e-dlgcustom{
+    & when (@skin= "material") {
+        padding-bottom: 8px !important;
+    }
+}
+
+.e-excelfilter  .e-dialog{
+    & when (@skin= "office-365") {
+        padding:20px 25px 0;
+    }
+}
+.e-excelfilter.e-dlgcustom.e-dialog:first-child{
+        & when (@skin= "office-365") {
+            padding-top:8px;
+        }
+    }
+.e-excelfilter.e-dlgcustom .e-dlgfields:last-child{
+      & when (@skin= "office-365") {
+            padding-bottom:0;
+        }
+}
+ .e-excelfilter.e-dlgcustom .e-dlgfields {
+        & when (@skin= "office-365") {
+            padding-bottom: 20px;
+        }
+    }
+.e-excelfilter span.e-filternone.e-icon{
+     & when (@skin= "office-365") {
+         margin:0;
+     }
+}
+.e-excelfilter .e-checkboxlist .e-ftrchk{
+    & when (@skin= "office-365") {
+         margin-top:6px;
+         height:36px;
+     }
+}
+.e-excelfilter ul.e-menu.e-vertical{
+     & when (@skin= "office-365") {
+         width:242px !important;
+     }
+}
+.e-excelfilter .e-searchcontainer .e-btncontainer.e-fields .e-button:last-child{
+      & when (@skin= "office-365") {
+         margin-right:0 !important;
+     }
+}
+.e-excelfilter .e-searchcontainer .e-btncontainer.e-fields{
+    & when (@skin= "office-365") {
+        float:right;
+    }
+
+}
+.e-excelfilter .e-shadow .e-list>a{
+    & when (@skin= "office-365") {
+       padding-left:12px !important;
+    }
+}
+.e-excelfilter .e-shadow{
+     & when (@skin= "material") {
+        box-shadow: 0 0 9px rgba(0,0,0,.4) !important;
+    }
+}
