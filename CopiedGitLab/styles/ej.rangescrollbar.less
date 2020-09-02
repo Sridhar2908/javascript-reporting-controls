@@ -1,0 +1,65 @@
+@import "definition.less";
+/*Theme Color*/
+
+.e-rangeScroll-select{
+    fill:@default-rangeScroll-select-fill;
+	stroke:@default-rangeScroll-select-stroke;
+	&:hover { 
+		fill:@hover-rangeScroll-select-fill; 
+        stroke:@hover-rangeScroll-select-stroke;
+	}
+    &:active { 
+		fill:@hover-rangeScroll-select-fill; 
+        stroke:@hover-rangeScroll-select-stroke;
+	}
+}
+
+.e-rangeScroll-select-hover{
+    fill:@hover-rangeScroll-select-fill; 
+    stroke:@hover-rangeScroll-select-stroke;
+}
+
+.e-rangeScroll-backRect{
+    fill:@default-rangeScroll-backRect-fill;
+	stroke:@default-rangeScroll-backRect-stroke;
+}
+
+.e-rangeScroll-arrow{
+     fill:@default-rangeScroll-arrow-fill;
+	 stroke:@default-rangeScroll-arrow-fill;
+     &:hover { 
+		fill:@hover-rangeScroll-arrow-fill; 
+        stroke:@hover-rangeScroll-arrow-fill;
+	}
+    &:active { 
+		fill:@hover-rangeScroll-arrow-fill; 
+        stroke:@hover-rangeScroll-arrow-fill;
+	}
+}
+
+.e-rangeScroll-centerShape{
+    fill:@default-rangeScroll-arrow-fill;
+	stroke:@default-rangeScroll-arrow-fill;
+}
+
+.e-rangeScroll-leftCircle,
+.e-rangeScroll-rightCircle{
+    fill:@default-rangeScroll-arrow-fill;
+	stroke:@default-rangeScroll-arrow-fill;
+    &:hover { 
+		fill:@hover-rangeScroll-arrow-fill; 
+        stroke:@hover-rangeScroll-arrow-fill;
+	}
+    &:active { 
+		fill:@hover-rangeScroll-arrow-fill; 
+        stroke:@hover-rangeScroll-arrow-fill;
+	}
+}
+
+.e-rangeScroll-leftRect:hover + .e-rangeScroll-leftCircle,
+.e-rangeScroll-rightRect:hover + .e-rangeScroll-rightCircle,
+.e-rangeScroll-leftRect:active + .e-rangeScroll-leftCircle,
+.e-rangeScroll-rightRect:active + .e-rangeScroll-rightCircle{
+    fill:@hover-rangeScroll-arrow-fill; 
+	stroke:@hover-rangeScroll-arrow-fill;
+}
